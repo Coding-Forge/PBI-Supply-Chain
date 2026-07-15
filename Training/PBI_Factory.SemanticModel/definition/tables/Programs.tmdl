@@ -1,0 +1,51 @@
+table Programs
+	lineageTag: 98f3c03d-7166-493c-b3cf-2d4959e591e8
+
+	column 'Program ID'
+		dataType: string
+		lineageTag: 8f45d5ad-bc71-4a21-b23e-b31b238dd540
+		summarizeBy: none
+		sourceColumn: Program ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Program Name'
+		dataType: string
+		lineageTag: 5704914d-eb9a-4d03-95c9-49e286b00034
+		summarizeBy: none
+		sourceColumn: Program Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Branch
+		dataType: string
+		lineageTag: 7aa3045c-0b42-4c8a-a5ed-afb627982952
+		summarizeBy: none
+		sourceColumn: Branch
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Contract Number'
+		dataType: string
+		lineageTag: 4946cdb4-5cb4-4d2a-98c9-e642974b6cb6
+		summarizeBy: none
+		sourceColumn: Contract Number
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Programs = m
+		mode: import
+		source =
+				let
+    Source = Csv.Document(File.Contents("C:\Projects\PowerBI\workshop\PBI_Factory\TrainingData\Financial Data - Programs.csv"),[Delimiter=",", Columns=4, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Column1", type text}, {"Column2", type text}, {"Column3", type text}, {"Column4", type text}}),
+				    #"Promoted Headers" = Table.PromoteHeaders(#"Changed Type", [PromoteAllScalars=true]),
+				    #"Changed Type1" = Table.TransformColumnTypes(#"Promoted Headers",{{"Program ID", type text}, {"Program Name", type text}, {"Branch", type text}, {"Contract Number", type text}}),
+				    #"Trimmed Text" = Table.TransformColumns(#"Changed Type1",{{"Program ID", Text.Trim, type text}, {"Program Name", Text.Trim, type text}, {"Branch", Text.Trim, type text}, {"Contract Number", Text.Trim, type text}})
+				in
+				    #"Trimmed Text"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

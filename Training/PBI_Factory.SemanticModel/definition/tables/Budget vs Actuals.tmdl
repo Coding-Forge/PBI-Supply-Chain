@@ -1,0 +1,199 @@
+table 'Budget vs Actuals'
+	lineageTag: 0927ab4e-35f3-4d43-bd7d-f845f9b76246
+
+	column 'Program ID'
+		dataType: string
+		lineageTag: 57169f6d-8021-4793-9711-8a0c12375e36
+		summarizeBy: none
+		sourceColumn: Program ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Program Name'
+		dataType: string
+		lineageTag: e48a4971-ef60-4357-8e16-c5b24eb32f4a
+		summarizeBy: none
+		sourceColumn: Program Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Fiscal Year'
+		dataType: string
+		lineageTag: a5d155a5-6566-44aa-9c3c-073a580ee970
+		summarizeBy: none
+		sourceColumn: Fiscal Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column Quarter
+		dataType: string
+		lineageTag: 38e7b376-1a24-47be-9d4b-b50e60a50390
+		summarizeBy: none
+		sourceColumn: Quarter
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cost Center'
+		dataType: string
+		lineageTag: 8d9c4156-f96b-49e9-8d8e-f84083468026
+		summarizeBy: none
+		sourceColumn: Cost Center
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Budget Category'
+		dataType: string
+		lineageTag: 3a101626-c6b3-4e65-a698-c65821ac2712
+		summarizeBy: none
+		sourceColumn: Budget Category
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Budgeted Amount'
+		dataType: double
+		lineageTag: 09261f11-433f-4590-b33e-070388caea21
+		summarizeBy: sum
+		sourceColumn: Budgeted Amount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Actual Amount'
+		dataType: double
+		lineageTag: 140a9be3-381c-4762-9344-4aefbbbfc7b9
+		summarizeBy: sum
+		sourceColumn: Actual Amount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Variance
+		dataType: double
+		formatString: 0
+		lineageTag: 449f9e05-dd29-4ffe-af84-23f5884c3a83
+		summarizeBy: sum
+		sourceColumn: Variance
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	column 'Variance %'
+		dataType: double
+		lineageTag: 60b367fd-bfc1-4d84-babc-f2af311ad2d9
+		summarizeBy: sum
+		sourceColumn: Variance %
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Funding Source'
+		dataType: string
+		lineageTag: 0f04bbc3-e670-431f-b645-3f027ad8d3b5
+		summarizeBy: none
+		sourceColumn: Funding Source
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Contract Number'
+		dataType: string
+		lineageTag: a66d1b9c-d087-44b2-be17-2224288d2b95
+		summarizeBy: none
+		sourceColumn: Contract Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column Status
+		dataType: string
+		lineageTag: 430a02c1-c71c-4a87-aa26-98e638324d8e
+		summarizeBy: none
+		sourceColumn: Status
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Budget vs Actuals' = m
+		mode: import
+		source =
+				let
+				    // Step 1: Load the CSV file
+				    Source = Csv.Document(
+        File.Contents("C:\Projects\PowerBI\workshop\PBI_Factory\TrainingData\Financial Data - Budget vs Actuals.csv"),
+				        [Delimiter=",", Columns=13, Encoding=65001, QuoteStyle=QuoteStyle.None]
+				    ),
+				
+				    // Step 2: Promote the first row to column headers
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				
+				    // Step 3: Remove the 3 footer/notes rows at the bottom
+				    #"Removed Bottom Rows" = Table.RemoveLastN(#"Promoted Headers", 3),
+				
+				    // Step 4: Trim extra spaces from text columns
+				    #"Trimmed Text" = Table.TransformColumns(#"Removed Bottom Rows", {
+				        {"Program Name", Text.Trim, type text},
+				        {"Program ID", Text.Trim, type text},
+				        {"Cost Center", Text.Trim, type text},
+				        {"Budget Category", Text.Trim, type text},
+				        {"Funding Source", Text.Trim, type text},
+				        {"Status", Text.Trim, type text}
+				    }),
+				
+				    // Step 5: Remove dollar signs from amount columns (Budgeted Amount, Actual Amount, Variance)
+				    #"Removed $ from Budgeted Amount" = Table.ReplaceValue(#"Trimmed Text", "$", "", Replacer.ReplaceText, {"Budgeted Amount"}),
+				    #"Removed $ from Actual Amount" = Table.ReplaceValue(#"Removed $ from Budgeted Amount", "$", "", Replacer.ReplaceText, {"Actual Amount"}),
+				    #"Removed $ from Variance" = Table.ReplaceValue(#"Removed $ from Actual Amount", "$", "", Replacer.ReplaceText, {"Variance"}),
+				
+				    // Step 6: Remove commas from amount columns
+				    #"Removed , from Budgeted Amount" = Table.ReplaceValue(#"Removed $ from Variance", ",", "", Replacer.ReplaceText, {"Budgeted Amount"}),
+				    #"Removed , from Actual Amount" = Table.ReplaceValue(#"Removed , from Budgeted Amount", ",", "", Replacer.ReplaceText, {"Actual Amount"}),
+				    #"Removed , from Variance" = Table.ReplaceValue(#"Removed , from Actual Amount", ",", "", Replacer.ReplaceText, {"Variance"}),
+				
+				    // Step 7: Remove parentheses from negative amounts (e.g., "(120000)" → "-120000")
+				    #"Removed ( from Budgeted Amount" = Table.ReplaceValue(#"Removed , from Variance", "(", "-", Replacer.ReplaceText, {"Budgeted Amount"}),
+				    #"Removed ) from Budgeted Amount" = Table.ReplaceValue(#"Removed ( from Budgeted Amount", ")", "", Replacer.ReplaceText, {"Budgeted Amount"}),
+				    #"Removed ( from Actual Amount" = Table.ReplaceValue(#"Removed ) from Budgeted Amount", "(", "-", Replacer.ReplaceText, {"Actual Amount"}),
+				    #"Removed ) from Actual Amount" = Table.ReplaceValue(#"Removed ( from Actual Amount", ")", "", Replacer.ReplaceText, {"Actual Amount"}),
+				    #"Removed ( from Variance" = Table.ReplaceValue(#"Removed ) from Actual Amount", "(", "-", Replacer.ReplaceText, {"Variance"}),
+				    #"Removed ) from Variance" = Table.ReplaceValue(#"Removed ( from Variance", ")", "", Replacer.ReplaceText, {"Variance"}),
+				
+				    // Step 8: Remove % signs from Variance %
+				    #"Removed % Signs" = Table.ReplaceValue(#"Removed ) from Variance", "%", "", Replacer.ReplaceText, {"Variance %"}),
+				
+				    // Step 9: Replace N/A with blank in Actual Amount, Variance, and Variance %
+				    #"Replaced N/A in Actual Amount" = Table.ReplaceValue(#"Removed % Signs", "N/A", "", Replacer.ReplaceText, {"Actual Amount"}),
+				    #"Replaced N/A in Variance" = Table.ReplaceValue(#"Replaced N/A in Actual Amount", "N/A", "", Replacer.ReplaceText, {"Variance"}),
+				    #"Replaced N/A in Variance %" = Table.ReplaceValue(#"Replaced N/A in Variance", "N/A", "", Replacer.ReplaceText, {"Variance %"}),
+				
+				    // Step 10: Change ALL amount columns to Decimal Number type
+				    #"Changed Types" = Table.TransformColumnTypes(#"Replaced N/A in Variance %", {
+				        {"Budgeted Amount", type number},
+				        {"Actual Amount", type number},
+				        {"Variance", type number},
+				        {"Variance %", type number}
+				    }),
+				
+				    // Step 11: Capitalize Each Word in Budget Category
+				    #"Capitalized Budget Category" = Table.TransformColumns(#"Changed Types", {
+				        {"Budget Category", Text.Proper, type text}
+				    }),
+				
+				    // Step 12: Replace "Sub-Contracts" with "Subcontracts"
+				    #"Fixed Sub-Contracts" = Table.ReplaceValue(#"Capitalized Budget Category", "Sub-Contracts", "Subcontracts", Replacer.ReplaceText, {"Budget Category"}),
+				
+				    // Step 13: Capitalize Each Word in Status column
+				    #"Capitalized Status" = Table.TransformColumns(#"Fixed Sub-Contracts", {
+				        {"Status", Text.Proper, type text}
+				    }),
+				
+				    // Step 14: Fix shortened program names
+				    #"Fixed Satellite Name" = Table.ReplaceValue(#"Capitalized Status", "Satellite Comm Upgrade", "Satellite Communications Upgrade", Replacer.ReplaceText, {"Program Name"}),
+				    #"Fixed Radar Name" = Table.ReplaceValue(#"Fixed Satellite Name", "Next Gen Radar Systems", "Next-Gen Radar Systems", Replacer.ReplaceText, {"Program Name"})
+				in
+				    #"Fixed Radar Name"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

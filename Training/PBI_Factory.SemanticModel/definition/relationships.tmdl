@@ -1,0 +1,19 @@
+relationship 7e1f22fe-ec4e-4a35-a415-3d359ec9a2ac
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Purchase Orders'.'Order Date'
+	toColumn: LocalDateTable_ad29e3ff-a357-446b-9bc3-7b33eb19b6e9.Date
+
+relationship 54497b58-e974-4b75-bc45-4dbba6cf6406
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Purchase Orders'.'Delivery Date'
+	toColumn: LocalDateTable_1ad8adfb-1358-46c8-a812-d6a534a80542.Date
+
+relationship AutoDetected_c39f6e61-d564-4a46-a65a-c44512648d41
+	fromColumn: 'Budget vs Actuals'.'Program ID'
+	toColumn: Programs.'Program ID'
+
+relationship AutoDetected_98653f8a-671a-4b0b-8225-8c6c1d9ce9b9
+	crossFilteringBehavior: bothDirections
+	fromColumn: 'Purchase Orders'.'Program ID'
+	toColumn: Programs.'Program ID'
+

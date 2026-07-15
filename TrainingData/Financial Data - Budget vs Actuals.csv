@@ -1,0 +1,124 @@
+Program ID,Program Name,Fiscal Year,Quarter,Cost Center,Budget Category,Budgeted Amount,Actual Amount,Variance,Variance %,Funding Source,Contract Number,Status
+PRG-001,Thunderbolt Sustainment Support,FY2025,Q1,CC-4100,Labor,"$2,500,000 ","$2,350,000 ","$150,000 ",6.00%,DoD Appropriation,FA8615-24-C-0012,On Track
+PRG-001,Thunderbolt Sustainment Support,FY2025,Q1,CC-4100,materials,"$1,800,000 ","$1,920,000 ","($120,000)",-6.70%,DoD Appropriation,FA8615-24-C-0012,over budget
+PRG-001,Thunderbolt Sustainment Support ,FY2025,Q1,CC-4100,Travel,"$350,000 ","$280,000 ","$70,000 ",20.00%,DoD Appropriation,FA8615-24-C-0012,On Track
+PRG-001,Thunderbolt Sustainment Support,FY2025,Q1,CC-4100,Sub-Contracts,"$4,200,000 ","$4,150,000 ","$50,000 ",1.20%, DoD Appropriation,FA8615-24-C-0012,On Track
+PRG-001,Thunderbolt Sustainment Support,FY2025,Q2,CC-4100,Labor,"$2,500,000 ","$3,900,000 ","($1,400,000)",-56.00%,DoD Appropriation,FA8615-24-C-0012,Over Budget
+PRG-001,Thunderbolt Sustainment Support,FY2025,Q2,CC-4100,Materials,"$1,800,000 ","$1,750,000 ","$50,000 ",2.80%,DoD Appropriation,FA8615-24-C-0012,On Track
+PRG-001,Thunderbolt Sustainment Support,FY2025,Q2,CC-4100,travel,"$350,000 ","$580,000 ","($230,000)",-65.70%,DoD Appropriation,FA8615-24-C-0012,Over Budget
+PRG-001,Thunderbolt Sustainment Support,FY2025,Q2,CC-4100,Subcontracts,"$4,200,000 ","$5,800,000 ","($1,600,000)",-38.10%,DoD Appropriation,FA8615-24-C-0012,OVER BUDGET
+PRG-002, Cyber Defense Initiative,FY2025,Q1,CC-5200,Labor,"$1,200,000 ","$750,000 ","$450,000 ",37.50%,DARPA Grant,W31P4Q-24-C-0088,On Track
+PRG-002,Cyber Defense Initiative,FY2025,Q1,CC-5200,Materials,"$400,000 ","$380,000 ","$20,000 ",5.00%,DARPA grant,W31P4Q-24-C-0088,On Track
+PRG-002,Cyber Defense Initiative,FY2025,Q1,CC-5200,Travel,"$150,000 ","$145,000 ","$5,000 ",3.30%,DARPA Grant,W31P4Q-24-C-0088,On Track
+PRG-002,Cyber Defense Initiative,FY2025,Q1,CC-5200,Sub-Contracts,"$800,000 ","$790,000 ","$10,000 ",1.30%,DARPA Grant,W31P4Q-24-C-0088,On Track
+PRG-002,Cyber Defense Initiative,FY2025,Q2,CC-5200,Labor,"$1,200,000 ","$780,000 ","$420,000 ",35.00%,DARPA Grant,W31P4Q-24-C-0088,On Track
+PRG-002,Cyber Defense Initiative,FY2025,Q2,CC-5200,Materials,"$400,000 ","$420,000 ","($20,000)",-5.00%,DARPA Grant,W31P4Q-24-C-0088,At Risk
+PRG-002,Cyber Defense Initiative,FY2025,Q2,CC-5200,Travel,"$150,000 ","$130,000 ","$20,000 ",13.30%,DARPA Grant,W31P4Q-24-C-0088,on track
+PRG-002,Cyber Defense Initiative,FY2025,Q2,CC-5200,Subcontracts,"$800,000 ","$810,000 ","($10,000)",-1.30%,DARPA Grant,W31P4Q-24-C-0088,On Track
+PRG-003,Satellite Comm Upgrade,FY2025,Q1,CC-3300,Labor,"$3,100,000 ","$3,050,000 ","$50,000 ",1.60%,Space Force,FA8808-24-C-0045,On Track
+PRG-003,Satellite Comm Upgrade,FY2025,Q1,CC-3300,Materials,"$2,200,000 ","$2,400,000 ","($200,000)",-9.10%,Space Force,FA8808-24-C-0045,Over Budget
+PRG-003,Satellite Comm Upgrade,FY2025,Q1,CC-3300,Travel,"$200,000 ","$180,000 ","$20,000 ",10.00%,Space Force,FA8808-24-C-0045,On Track
+PRG-003,Satellite Communications Upgrade,FY2025,Q1,CC-3300,Sub-Contracts,"$5,500,000 ","$7,400,000 ","($1,900,000)",-34.50%,Space Force,FA8808-24-C-0045,Over Budget
+PRG-003,Satellite Comm Upgrade,FY2025,Q2, CC-3300,Labor,"$3,100,000 ","$3,200,000 ","($100,000)",-3.20%,Space Force,FA8808-24-C-0045,At Risk
+PRG-003,Satellite Comm Upgrade,FY2025,Q2,CC-3300,Materials,"$2,200,000 ","$2,100,000 ","$100,000 ",4.50%,Space Force,FA8808-24-C-0045,On Track
+PRG-003,Satellite Comm Upgrade,FY2025,Q2,CC-3300,Travel,"$200,000 ","$480,000 ","($280,000)",-140.00%,Space Force,FA8808-24-C-0045,OVER BUDGET
+PRG-003,   Satellite Comm Upgrade,FY2025,Q2,CC-3300,Subcontracts,"$5,500,000 ","$7,500,000 ","($2,000,000)",-36.40%,Space Force,FA8808-24-C-0045,OVER BUDGET
+PRG-004,Logistics Command Platform,FY2025,Q1,CC-6100,Labor,"$900,000 ","$580,000 ","$320,000 ",35.60%,Army RDECOM,W56HZV-24-C-0199,On Track
+PRG-004,Logistics Command Platform,FY2025,Q1,CC-6100,Materials,"$300,000 ","$290,000 ","$10,000 ",3.30%,Army RDECOM,W56HZV-24-C-0199,On Track
+PRG-004,Logistics Command Platform,FY2025,Q1,CC-6100,Travel,"$100,000 ","$95,000 ","$5,000 ",5.00%, Army RDECOM,W56HZV-24-C-0199,On Track
+PRG-004,Logistics Command Platform      ,FY2025,Q1,CC-6100,Sub-Contracts,"$600,000 ","$580,000 ","$20,000 ",3.30%,Army RDECOM,W56HZV-24-C-0199,On Track
+PRG-004,Logistics Command Platform,FY2025,Q2,CC-6100,Labor,"$900,000 ","$550,000 ","$350,000 ",38.90%,Army RDECOM,W56HZV-24-C-0199,On Track
+PRG-004,Logistics Command Platform,FY2025,Q2,CC-6100,Materials,"$300,000 ","$310,000 ","($10,000)",-3.30%,Army RDECOM,W56HZV-24-C-0199,on track
+PRG-004,Logistics Command Platform,FY2025,Q2,CC-6100,Travel,"$100,000 ",N/A,N/A,N/A,Army RDECOM,W56HZV-24-C-0199,
+PRG-004,Logistics Command Platform,FY2025,Q2,CC-6100,Subcontracts,"$600,000 ","$620,000 ","($20,000)",-3.30%,Army RDECOM,W56HZV-24-C-0199,At Risk
+PRG-005,Next-Gen Radar Systems,FY2025,Q1,CC-7200,Labor,"$4,500,000 ","$4,400,000 ","$100,000 ",2.20%,Navy PEO IWS,N00024-24-C-5501,On Track
+PRG-005,Next-Gen Radar Systems,FY2025,Q1,CC-7200,Materials,"$3,200,000 ","$3,500,000 ","($300,000)",-9.40%,Navy PEO IWS,N00024-24-C-5501,Over Budget
+PRG-005,Next Gen Radar Systems,FY2025,Q1,CC-7200,Travel,"$450,000 ","$420,000 ","$30,000 ",6.70%,Navy PEO IWS,N00024-24-C-5501,On Track
+PRG-005,Next-Gen Radar Systems,FY2025,Q1,CC-7200,Sub-Contracts,"$6,000,000 ","$7,900,000 ","($1,900,000)",-31.70%,Navy PEO IWS,N00024-24-C-5501,Over Budget
+PRG-005,Next-Gen Radar Systems,FY2025,Q2,CC-7200,Labor,"$4,500,000 ","$4,650,000 ","($150,000)",-3.30%,Navy PEO IWS,N00024-24-C-5501,At Risk
+PRG-005,Next-Gen Radar Systems,FY2025,Q2,CC-7200,Materials,"$3,200,000 ","$3,100,000 ","$100,000 ",3.10%,Navy PEO IWS,N00024-24-C-5501,On Track
+PRG-005,Next-Gen Radar Systems,FY2025,Q2,CC-7200,Travel,"$450,000 ","$820,000 ","($370,000)",-82.20%,Navy PEO IWS,N00024-24-C-5501,Over Budget
+PRG-005,Next-Gen Radar Systems,FY2025,Q2,CC-7200,Subcontracts,"$6,000,000 ","$8,500,000 ","($2,500,000)",-41.70%,Navy PEO IWS,N00024-24-C-5501,OVER BUDGET
+PRG-001,Thunderbolt Sustainment Support,FY2025,Q3,CC-4100,Labor,"$2,500,000 ","$2,700,000 ","($200,000)",-8.00%,DoD Appropriation,FA8615-24-C-0012,At Risk
+PRG-001,Thunderbolt Sustainment Support,FY2025,Q3,CC-4100,Materials,"$1,800,000 ","$1,850,000 ","($50,000)",-2.80%,DoD Appropriation,FA8615-24-C-0012,on track
+PRG-001,Thunderbolt Sustainment Support,FY2025,Q3,CC-4100,Travel,"$350,000 ","$550,000 ","($200,000)",-57.10%,DoD Appropriation,FA8615-24-C-0012,Over Budget
+PRG-001,Thunderbolt Sustainment Support,FY2025,Q3,CC-4100,Subcontracts,"$4,200,000 ","$4,500,000 ","($300,000)",-7.10%,DoD Appropriation,FA8615-24-C-0012,At Risk
+PRG-002,Cyber Defense Initiative,FY2025,Q3,CC-5200,Labor,"$1,200,000 ","$900,000 ","$300,000 ",25.00%,DARPA Grant,W31P4Q-24-C-0088,On Track
+PRG-002,Cyber Defense Initiative,FY2025,Q3,CC-5200,Materials,"$400,000 ","$350,000 ","$50,000 ",12.50%,DARPA Grant,W31P4Q-24-C-0088,On Track
+PRG-002,Cyber Defense Initiative,FY2025,Q3,CC-5200,Travel,"$150,000 ","$140,000 ","$10,000 ",6.70%,DARPA Grant,W31P4Q-24-C-0088,On Track
+PRG-002,Cyber Defense Initiative,FY2025,Q3,CC-5200,Sub-Contracts,"$800,000 ","$780,000 ","$20,000 ",2.50%,DARPA Grant,W31P4Q-24-C-0088,On Track
+PRG-003,Satellite Comm Upgrade,FY2025,Q3,CC-3300,Labor,"$3,100,000 ","$3,300,000 ","($200,000)",-6.50%,Space Force,FA8808-24-C-0045,At Risk
+PRG-003,Satellite Comm Upgrade,FY2025,Q3,CC-3300,Materials,"$2,200,000 ","$2,600,000 ","($400,000)",-18.20%,Space Force,FA8808-24-C-0045,Over Budget
+PRG-003,Satellite Comm Upgrade,FY2025,Q3,CC-3300,Travel,"$200,000 ","$450,000 ","($250,000)",-125.00%,Space Force,FA8808-24-C-0045,Over Budget
+PRG-003,Satellite Comm Upgrade,FY2025,Q3,CC-3300,Subcontracts,"$5,500,000 ","$6,800,000 ","($1,300,000)",-23.60%,Space Force,FA8808-24-C-0045,Over Budget
+PRG-004,Logistics Command Platform,FY2025,Q3,CC-6100,Labor,"$900,000 ","$600,000 ","$300,000 ",33.30%,Army RDECOM,W56HZV-24-C-0199,On Track
+PRG-004,Logistics Command Platform,FY2025,Q3,CC-6100,Materials,"$300,000 ","$280,000 ","$20,000 ",6.70%,Army RDECOM,W56HZV-24-C-0199,On Track
+PRG-004,Logistics Command Platform,FY2025,Q3,CC-6100,travel,"$100,000 ","$90,000 ","$10,000 ",10.00%,Army RDECOM,W56HZV-24-C-0199,On Track
+PRG-004,Logistics Command Platform,FY2025,Q3,CC-6100,Subcontracts,"$600,000 ","$590,000 ","$10,000 ",1.70%,Army RDECOM,W56HZV-24-C-0199,On Track
+PRG-005,Next-Gen Radar Systems,FY2025,Q3,CC-7200,Labor,"$4,500,000 ","$4,800,000 ","($300,000)",-6.70%,Navy PEO IWS,N00024-24-C-5501,At Risk
+PRG-005,Next-Gen Radar Systems,FY2025,Q3,CC-7200,Materials,"$3,200,000 ","$3,600,000 ","($400,000)",-12.50%,Navy PEO IWS,N00024-24-C-5501,over budget
+PRG-005,Next-Gen Radar Systems,FY2025,Q3,CC-7200,Travel,"$450,000 ","$780,000 ","($330,000)",-73.30%,Navy PEO IWS,N00024-24-C-5501,Over Budget
+PRG-005,Next-Gen Radar Systems,FY2025,Q3,CC-7200,Subcontracts,"$6,000,000 ","$7,200,000 ","($1,200,000)",-20.00%,Navy PEO IWS,N00024-24-C-5501,Over Budget
+PRG-001,Thunderbolt Sustainment Support,FY2025,Q4,CC-4100,Labor,"$2,500,000 ","$2,550,000 ","($50,000)",-2.00%,DoD Appropriation,FA8615-24-C-0012,On Track
+PRG-001,Thunderbolt Sustainment Support,FY2025,Q4,CC-4100,Materials,"$1,800,000 ","$1,780,000 ","$20,000 ",1.10%,DoD Appropriation,FA8615-24-C-0012,On Track
+PRG-001,Thunderbolt Sustainment Support,FY2025,Q4,CC-4100,Travel,"$350,000 ","$510,000 ","($160,000)",-45.70%,DoD Appropriation,FA8615-24-C-0012,At Risk
+PRG-001,Thunderbolt Sustainment Support,FY2025,Q4,CC-4100,Subcontracts,"$4,200,000 ","$4,300,000 ","($100,000)",-2.40%,DoD Appropriation,FA8615-24-C-0012,at risk
+PRG-002,Cyber Defense Initiative,FY2025,Q4,CC-5200,Labor,"$1,200,000 ","$850,000 ","$350,000 ",29.20%,DARPA Grant,W31P4Q-24-C-0088,On Track
+PRG-002,Cyber Defense Initiative,FY2025,Q4,CC-5200,Materials,"$400,000 ","$370,000 ","$30,000 ",7.50%,DARPA grant,W31P4Q-24-C-0088,On Track
+PRG-002,Cyber Defense Initiative,FY2025,Q4,CC-5200,Travel,"$150,000 ","$120,000 ","$30,000 ",20.00%,DARPA Grant,W31P4Q-24-C-0088,On Track
+PRG-002,Cyber Defense Initiative,FY2025,Q4,CC-5200,Subcontracts,"$800,000 ","$750,000 ","$50,000 ",6.30%,DARPA Grant,W31P4Q-24-C-0088,On Track
+PRG-003,Satellite Comm Upgrade,FY2025,Q4,CC-3300,Labor,"$3,100,000 ","$3,400,000 ","($300,000)",-9.70%,Space Force,FA8808-24-C-0045,At Risk
+PRG-003,Satellite Comm Upgrade,FY2025,Q4,CC-3300,Materials,"$2,200,000 ","$2,500,000 ","($300,000)",-13.60%,Space Force,FA8808-24-C-0045,Over Budget
+PRG-003,Satellite Comm Upgrade,FY2025,Q4,CC-3300,Travel,"$200,000 ","$420,000 ","($220,000)",-110.00%,Space Force,FA8808-24-C-0045,OVER BUDGET
+PRG-003,Satellite Comm Upgrade,FY2025,Q4,CC-3300,Subcontracts,"$5,500,000 ","$6,200,000 ","($700,000)",-12.70%,Space Force,FA8808-24-C-0045,Over Budget
+PRG-004,Logistics Command Platform,FY2025,Q4,CC-6100,Labor,"$900,000 ","$620,000 ","$280,000 ",31.10%,Army RDECOM,W56HZV-24-C-0199,On Track
+PRG-004,Logistics Command Platform,FY2025,Q4,CC-6100,Materials,"$300,000 ","$270,000 ","$30,000 ",10.00%,Army RDECOM,W56HZV-24-C-0199,On Track
+PRG-004,Logistics Command Platform,FY2025,Q4,CC-6100,Travel,"$100,000 ","$85,000 ","$15,000 ",15.00%,Army RDECOM,W56HZV-24-C-0199,On Track
+PRG-004,Logistics Command Platform,FY2025,Q4,CC-6100,Subcontracts,"$600,000 ","$570,000 ","$30,000 ",5.00%,Army RDECOM,W56HZV-24-C-0199,On Track
+PRG-005,Next-Gen Radar Systems,FY2025,Q4,CC-7200,Labor,"$4,500,000 ","$5,100,000 ","($600,000)",-13.30%,Navy PEO IWS,N00024-24-C-5501,Over Budget
+PRG-005,Next-Gen Radar Systems,FY2025,Q4,CC-7200,Materials,"$3,200,000 ","$3,800,000 ","($600,000)",-18.80%,Navy PEO IWS,N00024-24-C-5501,Over Budget
+PRG-005,Next-Gen Radar Systems,FY2025,Q4,CC-7200,Travel,"$450,000 ","$850,000 ","($400,000)",-88.90%,Navy PEO IWS,N00024-24-C-5501,OVER BUDGET
+PRG-005,Next-Gen Radar Systems,FY2025,Q4,CC-7200,Subcontracts,"$6,000,000 ","$7,800,000 ","($1,800,000)",-30.00%,Navy PEO IWS,N00024-24-C-5501,OVER BUDGET
+PRG-001,Thunderbolt Sustainment Support,FY2026,Q1,CC-4100,Labor,"$2,600,000 ","$2,550,000 ","$50,000 ",1.90%,DoD Appropriation,FA8615-24-C-0012,On Track
+PRG-001,Thunderbolt Sustainment Support,FY2026,Q1,CC-4100,Materials,"$1,900,000 ","$1,880,000 ","$20,000 ",1.10%,DoD Appropriation,FA8615-24-C-0012,On Track
+PRG-001,Thunderbolt Sustainment Support,FY2026,Q1,CC-4100,Travel,"$375,000 ","$620,000 ","($245,000)",-65.30%,DoD Appropriation,FA8615-24-C-0012,Over Budget
+PRG-001,Thunderbolt Sustainment Support,FY2026,Q1,CC-4100,Subcontracts,"$4,400,000 ","$4,350,000 ","$50,000 ",1.10%,DoD Appropriation,FA8615-24-C-0012,On Track
+PRG-002,Cyber Defense Initiative,FY2026,Q1,CC-5200,Labor,"$1,300,000 ","$950,000 ","$350,000 ",26.90%,DARPA Grant,W31P4Q-24-C-0088,On Track
+PRG-002,Cyber Defense Initiative,FY2026,Q1,CC-5200,Materials,"$450,000 ","$400,000 ","$50,000 ",11.10%,DARPA Grant,W31P4Q-24-C-0088,On Track
+PRG-002,Cyber Defense Initiative,FY2026,Q1,CC-5200,Travel,"$160,000 ","$140,000 ","$20,000 ",12.50%,DARPA Grant,W31P4Q-24-C-0088,on track
+PRG-002,Cyber Defense Initiative,FY2026,Q1,CC-5200,Sub-Contracts,"$850,000 ","$800,000 ","$50,000 ",5.90%,DARPA Grant,W31P4Q-24-C-0088,On Track
+PRG-003,Satellite Communications Upgrade,FY2026,Q1,CC-3300,Labor,"$3,200,000 ","$3,500,000 ","($300,000)",-9.40%,Space Force,FA8808-24-C-0045,At Risk
+PRG-003,Satellite Communications Upgrade,FY2026,Q1,CC-3300,Materials,"$2,300,000 ","$2,700,000 ","($400,000)",-17.40%,Space Force,FA8808-24-C-0045,Over Budget
+PRG-003,Satellite Communications Upgrade,FY2026,Q1,CC-3300,Travel,"$220,000 ","$510,000 ","($290,000)",-131.80%,Space Force,FA8808-24-C-0045,Over Budget
+PRG-003,Satellite Communications Upgrade,FY2026,Q1,CC-3300,Subcontracts,"$5,800,000 ","$6,900,000 ","($1,100,000)",-19.00%,Space Force,FA8808-24-C-0045,Over Budget
+PRG-004,Logistics Command Platform,FY2026,Q1,CC-6100,Labor,"$950,000 ","$700,000 ","$250,000 ",26.30%,Army RDECOM,W56HZV-24-C-0199,On Track
+PRG-004,Logistics Command Platform,FY2026,Q1,CC-6100,Materials,"$320,000 ","$300,000 ","$20,000 ",6.30%,Army RDECOM,W56HZV-24-C-0199,On Track
+PRG-004,Logistics Command Platform,FY2026,Q1,CC-6100,Travel,"$110,000 ","$95,000 ","$15,000 ",13.60%,Army RDECOM,W56HZV-24-C-0199,On Track
+PRG-004,Logistics Command Platform,FY2026,Q1,CC-6100,Subcontracts,"$650,000 ","$620,000 ","$30,000 ",4.60%,Army RDECOM,W56HZV-24-C-0199,On Track
+PRG-005,Next-Gen Radar Systems,FY2026,Q1,CC-7200,Labor,"$4,800,000 ","$5,300,000 ","($500,000)",-10.40%,Navy PEO IWS,N00024-24-C-5501,Over Budget
+PRG-005,Next-Gen Radar Systems,FY2026,Q1,CC-7200,Materials,"$3,400,000 ","$3,900,000 ","($500,000)",-14.70%,Navy PEO IWS,N00024-24-C-5501,Over Budget
+PRG-005,Next-Gen Radar Systems,FY2026,Q1,CC-7200,Travel,"$475,000 ","$890,000 ","($415,000)",-87.40%,Navy PEO IWS,N00024-24-C-5501,OVER BUDGET
+PRG-005,Next-Gen Radar Systems,FY2026,Q1,CC-7200,Subcontracts,"$6,200,000 ","$8,100,000 ","($1,900,000)",-30.60%,Navy PEO IWS,N00024-24-C-5501,OVER BUDGET
+PRG-001,Thunderbolt Sustainment Support,FY2026,Q2,CC-4100,Labor,"$2,600,000 ","$2,620,000 ","($20,000)",-0.80%,DoD Appropriation,FA8615-24-C-0012,On Track
+PRG-001,Thunderbolt Sustainment Support,FY2026,Q2,CC-4100,Materials,"$1,900,000 ","$1,950,000 ","($50,000)",-2.60%,DoD Appropriation,FA8615-24-C-0012,on track
+PRG-001,Thunderbolt Sustainment Support,FY2026,Q2,CC-4100,Travel,"$375,000 ","$590,000 ","($215,000)",-57.30%,DoD Appropriation,FA8615-24-C-0012,Over Budget
+PRG-001,Thunderbolt Sustainment Support,FY2026,Q2,CC-4100,Subcontracts,"$4,400,000 ","$4,380,000 ","$20,000 ",0.50%,DoD Appropriation,FA8615-24-C-0012,On Track
+PRG-002,Cyber Defense Initiative,FY2026,Q2,CC-5200,Labor,"$1,300,000 ","$1,000,000 ","$300,000 ",23.10%,DARPA Grant,W31P4Q-24-C-0088,On Track
+PRG-002,Cyber Defense Initiative,FY2026,Q2,CC-5200,Materials,"$450,000 ","$430,000 ","$20,000 ",4.40%,DARPA Grant,W31P4Q-24-C-0088,On Track
+PRG-002,Cyber Defense Initiative,FY2026,Q2,CC-5200,Travel,"$160,000 ","$150,000 ","$10,000 ",6.30%,DARPA Grant,W31P4Q-24-C-0088,On Track
+PRG-002,Cyber Defense Initiative,FY2026,Q2,CC-5200,Subcontracts,"$850,000 ","$820,000 ","$30,000 ",3.50%,DARPA Grant,W31P4Q-24-C-0088,On Track
+PRG-003,Satellite Communications Upgrade,FY2026,Q2,CC-3300,Labor,"$3,200,000 ","$3,600,000 ","($400,000)",-12.50%,Space Force,FA8808-24-C-0045,Over Budget
+PRG-003,Satellite Communications Upgrade,FY2026,Q2,CC-3300,Materials,"$2,300,000 ","$2,800,000 ","($500,000)",-21.70%,Space Force,FA8808-24-C-0045,over budget
+PRG-003,Satellite Communications Upgrade,FY2026,Q2,CC-3300,Travel,"$220,000 ","$530,000 ","($310,000)",-140.90%,Space Force,FA8808-24-C-0045,OVER BUDGET
+PRG-003,Satellite Communications Upgrade,FY2026,Q2,CC-3300,Subcontracts,"$5,800,000 ","$7,200,000 ","($1,400,000)",-24.10%,Space Force,FA8808-24-C-0045,Over Budget
+PRG-004,Logistics Command Platform,FY2026,Q2,CC-6100,Labor,"$950,000 ","$720,000 ","$230,000 ",24.20%,Army RDECOM,W56HZV-24-C-0199,On Track
+PRG-004,Logistics Command Platform,FY2026,Q2,CC-6100,Materials,"$320,000 ","$290,000 ","$30,000 ",9.40%,Army RDECOM,W56HZV-24-C-0199,On Track
+PRG-004,Logistics Command Platform,FY2026,Q2,CC-6100,Travel,"$110,000 ","$100,000 ","$10,000 ",9.10%,Army RDECOM,W56HZV-24-C-0199,On Track
+PRG-004,Logistics Command Platform,FY2026,Q2,CC-6100,Subcontracts,"$650,000 ","$630,000 ","$20,000 ",3.10%,Army RDECOM,W56HZV-24-C-0199,On Track
+PRG-005,Next-Gen Radar Systems,FY2026,Q2,CC-7200,Labor,"$4,800,000 ","$5,500,000 ","($700,000)",-14.60%,Navy PEO IWS,N00024-24-C-5501,Over Budget
+PRG-005,Next-Gen Radar Systems,FY2026,Q2,CC-7200,Materials,"$3,400,000 ","$4,100,000 ","($700,000)",-20.60%,Navy PEO IWS,N00024-24-C-5501,Over Budget
+PRG-005,Next-Gen Radar Systems,FY2026,Q2,CC-7200,Travel,"$475,000 ","$920,000 ","($445,000)",-93.70%,Navy PEO IWS,N00024-24-C-5501,OVER BUDGET
+PRG-005,Next-Gen Radar Systems,FY2026,Q2,CC-7200,Subcontracts,"$6,200,000 ","$8,400,000 ","($2,200,000)",-35.50%,Navy PEO IWS,N00024-24-C-5501,OVER BUDGET
+,,,,,,,,,,,,
+Notes: Data exported from D365 on 04/15/2025. Contact finance@example-defense.com for corrections.,,,,,,,,,,,,
+Notes: Data exported from D365 on 04/15/2025. Contact finance@example-defense.com for corrections.,,,,,,,,,,,,
