@@ -37,7 +37,7 @@ table Programs
 		mode: import
 		source =
 				let
-    Source = Csv.Document(File.Contents("C:\Projects\PowerBI\workshop\PBI_Factory\TrainingData\Financial Data - Programs.csv"),[Delimiter=",", Columns=4, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    Source = Csv.Document(File.Contents("C:\Projects\PowerBI\workshop\PBI_Factory\TrainingData\Financial Data - Programs.csv"),[Delimiter=",", Columns=4, Encoding=1252, QuoteStyle=QuoteStyle.None]),
 				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Column1", type text}, {"Column2", type text}, {"Column3", type text}, {"Column4", type text}}),
 				    #"Promoted Headers" = Table.PromoteHeaders(#"Changed Type", [PromoteAllScalars=true]),
 				    #"Changed Type1" = Table.TransformColumnTypes(#"Promoted Headers",{{"Program ID", type text}, {"Program Name", type text}, {"Branch", type text}, {"Contract Number", type text}}),

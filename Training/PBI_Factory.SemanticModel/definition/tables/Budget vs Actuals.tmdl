@@ -120,7 +120,7 @@ table 'Budget vs Actuals'
 				let
 				    // Step 1: Load the CSV file
 				    Source = Csv.Document(
-        File.Contents("C:\Projects\PowerBI\workshop\PBI_Factory\TrainingData\Financial Data - Budget vs Actuals.csv"),
+				    File.Contents("C:\Projects\PowerBI\workshop\PBI_Factory\TrainingData\Financial Data - Budget vs Actuals.csv"),
 				        [Delimiter=",", Columns=13, Encoding=65001, QuoteStyle=QuoteStyle.None]
 				    ),
 				

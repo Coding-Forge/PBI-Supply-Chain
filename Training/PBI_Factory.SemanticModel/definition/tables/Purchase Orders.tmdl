@@ -168,7 +168,7 @@ table 'Purchase Orders'
 				let
 				    // Step 1: Load the CSV file
 				    Source = Csv.Document(
-                                  File.Contents("C:\Projects\PowerBI\workshop\PBI_Factory\TrainingData\Financial Data - Purchase Orders.csv"),
+				    File.Contents("C:\Projects\PowerBI\workshop\PBI_Factory\TrainingData\Financial Data - Purchase Orders.csv"),
 				        [Delimiter=",", Columns=17, Encoding=65001, QuoteStyle=QuoteStyle.None]
 				    ),
 				
