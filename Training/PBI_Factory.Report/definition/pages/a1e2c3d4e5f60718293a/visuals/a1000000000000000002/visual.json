@@ -1,0 +1,81 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "name": "a1000000000000000002",
+  "position": {
+    "x": 274.0,
+    "y": 28.0,
+    "z": 2000,
+    "height": 112.0,
+    "width": 220.0,
+    "tabOrder": 2000
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Purchase Orders"
+                        }
+                      },
+                      "Property": "Amount Remaining"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(Purchase Orders.Amount Remaining)",
+              "nativeQueryRef": "Sum of Amount Remaining"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "Purchase Orders"
+                      }
+                    },
+                    "Property": "Amount Remaining"
+                  }
+                },
+                "Function": 0
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true,
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Open Commitment'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

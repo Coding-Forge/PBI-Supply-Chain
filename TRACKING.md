@@ -21,11 +21,17 @@ This file tracks completed changes, open work, and safe-edit procedures for the 
   - `Training\PBI_Factory.SemanticModel\definition\tables\Purchase Orders.tmdl`
 - Fixed TMDL indentation on the edited M expression lines after Power BI Desktop reported an indentation parse error.
 - Added this tracking file to document work performed and safe editing practices.
+- Added three modern comparison pages while keeping the original pages:
+  - `Executive Command Center`
+  - `Program Health Modern`
+  - `Procurement Operations`
+- Added `Student\DeliveryGuide\Modern Report Pages Delivery Guide.md` with instructor notes and page-by-page discussion prompts.
 
 ## Open work
 
 - Reopen `Training\PBI_Factory.pbip` in Power BI Desktop and confirm the project loads without TMDL format errors.
 - Refresh the model and confirm all CSV sources resolve from `TrainingData`.
+- Review the new modern pages in Power BI Desktop and adjust any visual sizing, titles, or interactions that need final polish.
 - Review the report pages, visuals, relationships, measures, and training instructions for the defense-industry delivery.
 - Replace any remaining copied sample content, branding, terminology, or data that does not fit the intended defense-industry workshop.
 - Commit after each meaningful, working change so rollback points remain available.
