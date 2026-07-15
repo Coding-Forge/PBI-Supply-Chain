@@ -2,11 +2,11 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
   "name": "c1000000000000000001",
   "position": {
-    "x": 24.0,
-    "y": 24.0,
+    "x": 23.642494759546739,
+    "y": 23.642494759546739,
     "z": 1000,
-    "height": 180.0,
-    "width": 260.0,
+    "height": 90.836953549837474,
+    "width": 260.06744235501412,
     "tabOrder": 1000
   },
   "visual": {
@@ -40,7 +40,6 @@
         }
       ]
     },
-    "drillFilterOtherVisuals": true,
     "visualContainerObjects": {
       "title": [
         {
@@ -55,6 +54,25 @@
           }
         }
       ]
-    }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "3337f9de68151851a132",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Purchase Orders"
+              }
+            },
+            "Property": "Priority"
+          }
+        },
+        "type": "Categorical"
+      }
+    ]
   }
 }
