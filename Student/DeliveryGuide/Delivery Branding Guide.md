@@ -6,18 +6,21 @@ Use this guide before every customer delivery. The student HTML pages use a shar
 
 - Customer: **Boeing**
 - Workshop label: **Power BI Workshop**
-- Brand configuration: `Student\Lab\delivery-brand.js`
-- Customer logo: not bundled; the generic aviation icon is used until an approved asset is provided
+- Brand configuration: `Student\Lab\delivery-config.js`
+- Shared renderer: `Student\Lab\delivery-brand.js`
+- Customer assets: `Student\Lab\Branding\Boeing`
 
 ## Required instructor update
 
-Open `Student\Lab\delivery-brand.js` and update only the configuration at the top of the file:
+Open `Student\Lab\delivery-config.js` and update the delivery configuration:
 
 ```javascript
-const deliveryBrand = {
+window.deliveryBrandConfig = {
   customerName: "Boeing",
   workshopName: "Power BI Workshop",
-  logoPath: ""
+   titleSuffix: "Boeing",
+   logoPath: "Branding/Boeing/boeing-mark.svg",
+   badgePath: "Branding/Boeing/boeing-name-badge.svg"
 };
 ```
 
@@ -25,25 +28,30 @@ const deliveryBrand = {
 | --- | --- |
 | `customerName` | Replace with the delivery customer’s approved display name. |
 | `workshopName` | Keep `Power BI Workshop` or replace it with the approved event title. |
-| `logoPath` | Leave blank for the generic icon, or provide a relative path to an approved SVG or PNG. |
+| `titleSuffix` | Set the customer name appended to each browser title. |
+| `logoPath` | Set a relative path to an approved compact logo SVG or PNG. Leave blank for the generic icon. |
+| `badgePath` | Set a relative path to an approved combined customer/workshop badge. Leave blank to show the logo and text separately. |
+| `theme` | Set approved accent, hover, soft-background, foreground, and link colors. |
+| `icons` | Set optional delivery, cloud, and governance icon paths used by branded page content. |
 
 The component adds the customer masthead to all six HTML pages and appends the customer name to each browser title.
 
 ## Using an approved customer logo
 
 1. Obtain the logo from the customer, account team, or approved internal brand library. Do not download an unofficial logo from image search.
-2. Place the asset in `Student\Images`, for example:
+2. Create a customer folder under `Student\Lab\Branding` and place the approved assets there, for example:
    ```text
-   Student\Images\customer-logo.svg
+   Student\Lab\Branding\Customer\customer-mark.svg
    ```
-3. Set the path relative to the HTML files in `Student\Lab`:
+3. Set the paths relative to the HTML files in `Student\Lab`:
    ```javascript
-   logoPath: "../Images/customer-logo.svg"
+   logoPath: "Branding/Customer/customer-mark.svg",
+   badgePath: "Branding/Customer/customer-name-badge.svg"
    ```
 4. Prefer a transparent SVG or PNG with enough internal padding to remain legible in the 40 × 40 pixel masthead mark.
 5. Open the course home and one lab in both light and dark themes. Confirm the logo is legible and does not stretch or clip.
 
-The customer name remains visible text even when a logo is configured. This preserves accessibility and avoids relying on the logo alone for identification.
+When a badge is configured, its alt text combines the customer and workshop names. When only a logo is configured, visible customer and workshop text remains beside it.
 
 ## Do not replace fictitious-data references automatically
 
@@ -67,8 +75,9 @@ Change those references only when the source repository and training data are in
 5. Verify the course home still lists four guided labs.
 6. Confirm all local links resolve.
 7. Confirm Coding-Forge data URLs still work unless the dataset was intentionally replaced.
-8. Review Power BI report files separately for titles, themes, logos, and customer-specific metadata.
+8. Confirm every path configured in `delivery-config.js` is included in the student release.
+9. Review Power BI report files separately for titles, themes, logos, and customer-specific metadata.
 
 ## Current Boeing delivery note
 
-The HTML course is configured for Boeing by name and uses a neutral aviation icon. Replace the generic icon only when an approved Boeing logo asset is supplied for this delivery.
+The HTML course is configured for Boeing and uses the approved assets currently stored under `Student\Lab\Branding\Boeing`. Confirm those assets and their permitted use before each delivery.

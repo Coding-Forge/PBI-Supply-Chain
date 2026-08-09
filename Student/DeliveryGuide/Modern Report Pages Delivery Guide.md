@@ -12,7 +12,7 @@ This guide supports the new comparison pages added to `Training\PBI_Factory.pbip
 
 ## Instructor notes
 
-Before delivery, complete the customer-branding checklist in `Delivery Branding Guide.md`. The current HTML configuration is set to Boeing and uses a neutral aviation icon until an approved customer logo is supplied.
+Before delivery, complete the customer-branding checklist in `Delivery Branding Guide.md`. The current HTML configuration is set to Boeing through `Student\Lab\delivery-config.js`.
 
 1. Start each section on the original page and ask students what works well and what feels unfinished.
 2. Move to the matching modern page and discuss the design changes.
@@ -90,7 +90,7 @@ Ask students to choose one modern page and propose one additional improvement:
 
 ## Maintenance notes
 
-- Update `Student\Lab\delivery-brand.js` before each customer delivery and verify every HTML page.
+- Update `Student\Lab\delivery-config.js` before each customer delivery and verify every HTML page.
 - Keep Coding-Forge references when they identify the fictitious dataset or repository rather than the delivery customer.
 - Close Power BI Desktop before editing PBIP project files manually.
 - Preserve TMDL and PBIR indentation and line endings.

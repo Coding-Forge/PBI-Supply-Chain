@@ -1,8 +1,0 @@
-relationship AutoDetected_59ec4481-8fae-43d2-b988-d08f4e45288b
-	fromColumn: 'Budget vs Actuals'.'Program ID'
-	toColumn: Program.'Program ID'
-
-relationship AutoDetected_5d031576-6b65-4670-a896-b86aafc26fea
-	fromColumn: 'Purchase Orders'.'Program ID'
-	toColumn: Program.'Program ID'
-

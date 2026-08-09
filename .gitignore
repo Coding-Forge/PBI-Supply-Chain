@@ -1,5 +1,8 @@
 **/.pbi/localSettings.json
 **/.pbi/cache.abf
 
-# Local Power BI project workspace
-/PBIP/
+# Local Power BI project workspaces
+**/PBIP/
+
+# Generated release archives and checksums
+/Release/dist/
