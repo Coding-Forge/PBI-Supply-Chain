@@ -39,7 +39,7 @@ Do not distribute the instructor package to students because it contains complet
 | `PPT` | Instructor lesson decks and archived source material. |
 | `Certificate` | Certificate generation assets. |
 | `Sample Reports` | Supplemental demonstration reports. |
-| `Communications` | Reusable customer access and readiness email templates. |
+| `Communications` | Reusable readiness email, instructor-only backup manuals, and PDF generator. |
 | `Release` | Package documentation and the release builder. |
 | `PBIP` | Local Power BI project workspace; ignored by Git and release packaging. |
 

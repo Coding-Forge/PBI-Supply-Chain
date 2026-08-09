@@ -208,6 +208,7 @@ Assert-Archive -ArchivePath $studentArchive `
     -RequiredPatterns @(
         "$studentRootName/README.md",
         "$studentRootName/Lab/index.html",
+        "$studentRootName/Lab/manual-print.css",
         "$studentRootName/Lab/delivery-config.js",
         "$studentRootName/Lab/Branding/*",
         "$studentRootName/Images/*.png",
@@ -220,6 +221,13 @@ Assert-Archive -ArchivePath $studentArchive `
         '*DeliveryGuide*',
         '*Customer Communications*',
         '*Customer Training Access and Readiness Email*',
+        '*Student Manual PDFs*',
+        '*Course Overview.pdf',
+        '*Connect to GitHub Data.pdf',
+        '*Transform and Model.pdf',
+        '*Build the Power BI Report.pdf',
+        '*Publish to Power BI.pdf',
+        '*Optional Follow Up.pdf',
         '*.py'
     )
 
@@ -229,6 +237,12 @@ Assert-Archive -ArchivePath $instructorArchive `
         "$instructorRootName/Student/Lab/index.html",
         "$instructorRootName/Instructor/DeliveryGuide/*",
         "$instructorRootName/Instructor/Customer Communications/Customer Training Access and Readiness Email.md",
+        "$instructorRootName/Instructor/Customer Communications/Student Manual PDFs/00 - Course Overview.pdf",
+        "$instructorRootName/Instructor/Customer Communications/Student Manual PDFs/01 - Connect to GitHub Data.pdf",
+        "$instructorRootName/Instructor/Customer Communications/Student Manual PDFs/02 - Transform and Model.pdf",
+        "$instructorRootName/Instructor/Customer Communications/Student Manual PDFs/03 - Build the Power BI Report.pdf",
+        "$instructorRootName/Instructor/Customer Communications/Student Manual PDFs/04 - Publish to Power BI.pdf",
+        "$instructorRootName/Instructor/Customer Communications/Student Manual PDFs/05 - Optional Follow Up.pdf",
         "$instructorRootName/Instructor/Completed Reports/*.pbix",
         "$instructorRootName/Instructor/Slide Decks/*.pptx",
         "$instructorRootName/Instructor/Source Data/*.csv"
