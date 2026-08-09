@@ -1,0 +1,129 @@
+@page {
+  size: letter;
+  margin: 0.55in;
+}
+
+html,
+html[data-theme="dark"] {
+  color-scheme: light;
+  --cp-bg: #ffffff;
+  --cp-bg-elevated: #ffffff;
+  --cp-surface: #ffffff;
+  --cp-surface-soft: #f5f5f5;
+  --cp-border: #c8c8c8;
+  --cp-border-strong: #767676;
+  --cp-text: #1f1f1f;
+  --cp-text-muted: #4a4a4a;
+  --cp-text-soft: #595959;
+  --cp-shadow: none;
+}
+
+body {
+  background: #ffffff !important;
+  color: #1f1f1f !important;
+  font-size: 10pt;
+  line-height: 1.4;
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
+}
+
+.shell {
+  max-width: none !important;
+  padding: 0 !important;
+}
+
+.topnav,
+.bottomnav,
+.copy,
+.progress {
+  display: none !important;
+}
+
+.delivery-brand-masthead {
+  margin: 0 0 12pt !important;
+}
+
+header {
+  padding: 14pt 0 !important;
+}
+
+h1 {
+  font-size: 25pt !important;
+}
+
+h2 {
+  font-size: 16pt !important;
+  break-after: avoid-page;
+}
+
+h3,
+strong,
+figcaption {
+  break-after: avoid-page;
+}
+
+main {
+  display: block !important;
+  padding: 18pt 0 0 !important;
+}
+
+aside {
+  position: static !important;
+  width: 100% !important;
+  margin-top: 18pt;
+}
+
+section,
+.panel,
+.urlcard,
+.checklist,
+.cloud-card,
+.idea,
+.lab,
+.shot,
+.callout,
+.verify > div,
+.flow-step {
+  box-shadow: none !important;
+  break-inside: avoid-page;
+}
+
+.panel,
+.urlcard,
+.checklist,
+.cloud-card,
+.idea,
+.lab,
+.shot {
+  border-color: #c8c8c8 !important;
+}
+
+.cloud-grid,
+.release-flow,
+.verify {
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+}
+
+.shot img {
+  max-height: 7in;
+  object-fit: contain;
+}
+
+a {
+  color: #005ea8 !important;
+  text-decoration: underline;
+}
+
+a[href^="http"]::after {
+  content: " (" attr(href) ")";
+  font-size: 8pt;
+  overflow-wrap: anywhere;
+}
+
+input[type="checkbox"] {
+  appearance: none;
+  width: 10pt;
+  height: 10pt;
+  border: 1pt solid #555555;
+  background: #ffffff;
+}
