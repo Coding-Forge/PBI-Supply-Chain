@@ -1,6 +1,6 @@
 # Report Building Guide
 
-## Lockheed Martin
+## Coding-Forge
 
 ---
 
@@ -271,7 +271,7 @@ To add a "Top 3 over-budget programs" filter on the Table visual:
 ### Apply a Consistent Theme
 
 1. **View** tab > **Themes** > Browse for a theme or select a built-in one
-2. For DoD/Lockheed Martin branding, consider creating a custom theme with company colors
+2. For Coding-Forge branding, consider creating a custom theme with company colors
 
 ### Add Page Navigation Buttons
 
@@ -281,7 +281,7 @@ To add a "Top 3 over-budget programs" filter on the Table visual:
 ### Add a Title Banner
 
 1. **Insert** tab > **Text box**
-2. Type your report title (e.g., "LM Program Financial Dashboard")
+2. Type your report title (e.g., "Coding-Forge Program Financial Dashboard")
 3. Format: Bold, larger font, company blue background
 
 ### Refresh Schedule (After Publishing)

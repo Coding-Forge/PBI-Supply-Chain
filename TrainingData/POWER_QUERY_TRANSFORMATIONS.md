@@ -1,6 +1,6 @@
 # Power Query Transformations Guide
 
-## Lockheed Martin | Cleaning Financial Data in Power BI
+## Coding-Forge | Cleaning Financial Data in Power BI
 
 ---
 

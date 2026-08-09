@@ -1,6 +1,6 @@
 # Power BI - Financial Data Training Guide
 
-## Lockheed Martin
+## Coding-Forge
 
 ---
 
@@ -146,4 +146,4 @@ Power BI automatically calculates totals, averages, and counts when you drag fie
 
 ---
 
-*Prepared for Lockheed Martin - Power BI for US DoD Training*
+*Prepared for Coding-Forge - Power BI for US DoD Training*
