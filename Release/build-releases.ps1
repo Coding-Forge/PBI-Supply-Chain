@@ -186,6 +186,7 @@ $instructorMappings = @(
     @{ Source = 'Student\PowerQuery'; Destination = 'Instructor\Reference\PowerQuery' },
     @{ Source = 'Student\ReportBackgrounds'; Destination = 'Instructor\Reference\ReportBackgrounds' },
     @{ Source = 'Student\DeliveryGuide'; Destination = 'Instructor\DeliveryGuide' },
+    @{ Source = 'Communications'; Destination = 'Instructor\Customer Communications' },
     @{ Source = 'Student\Lab\Completed_Report.pbix'; Destination = 'Instructor\Completed Reports\Completed_Report.pbix' },
     @{ Source = 'Student\Lab\Completed_Report_2.pbix'; Destination = 'Instructor\Completed Reports\Completed_Report_2.pbix' },
     @{ Source = 'Completed'; Destination = 'Instructor\Completed Reports\Legacy' },
@@ -194,7 +195,7 @@ $instructorMappings = @(
     @{ Source = 'Sample Reports'; Destination = 'Instructor\Sample Reports' },
     @{ Source = 'PPT\Lesson 1 - Power BI Overview.pptx'; Destination = 'Instructor\Slide Decks\Lesson 1 - Power BI Overview.pptx' },
     @{ Source = 'PPT\Lesson 2 - Getting your Data into Power BI (2).pptx'; Destination = 'Instructor\Slide Decks\Lesson 2 - Getting your Data into Power BI.pptx' },
-    @{ Source = 'PPT\Lesson 3 - Building Reports (2).pptx'; Destination = 'Instructor\Slide Decks\Lesson 3 - Building Reports.pptx' },
+    @{ Source = 'PPT\Lesson 3 - Building Reports.pptx'; Destination = 'Instructor\Slide Decks\Lesson 3 - Building Reports.pptx' },
     @{ Source = 'PPT\Lesson 4 - Publish Collaborate and Sharing.pptx'; Destination = 'Instructor\Slide Decks\Lesson 4 - Publish Collaborate and Sharing.pptx' }
 )
 
@@ -210,13 +211,22 @@ Assert-Archive -ArchivePath $studentArchive `
         "$studentRootName/Images/*.png",
         "$studentRootName/Data/*.csv"
     ) `
-    -ForbiddenPatterns @('*PBIP*', '*.pbix', '*.pptx', '*DeliveryGuide*', '*.py')
+    -ForbiddenPatterns @(
+        '*PBIP*',
+        '*.pbix',
+        '*.pptx',
+        '*DeliveryGuide*',
+        '*Customer Communications*',
+        '*Customer Training Access and Readiness Email*',
+        '*.py'
+    )
 
 Assert-Archive -ArchivePath $instructorArchive `
     -RequiredPatterns @(
         "$instructorRootName/README.md",
         "$instructorRootName/Student/Lab/index.html",
         "$instructorRootName/Instructor/DeliveryGuide/*",
+        "$instructorRootName/Instructor/Customer Communications/Customer Training Access and Readiness Email.md",
         "$instructorRootName/Instructor/Completed Reports/*.pbix",
         "$instructorRootName/Instructor/Slide Decks/*.pptx",
         "$instructorRootName/Instructor/Source Data/*.csv"

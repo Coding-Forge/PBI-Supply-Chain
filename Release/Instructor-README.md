@@ -12,6 +12,7 @@ Distribute the separate **student ZIP** to attendees. Do not distribute this ins
 | --- | --- |
 | `Student` | Exact student-facing lab, screenshot, branding, and quick-start material. |
 | `Instructor\DeliveryGuide` | Branding and report-page delivery guidance. |
+| `Instructor\Customer Communications` | Reusable customer access and readiness email template. |
 | `Instructor\Slide Decks` | Canonical Lessons 1–4 for delivery. |
 | `Instructor\Completed Reports` | Completed reports for demonstration and recovery. |
 | `Instructor\Source Data` | Local CSV fallback and validation sources. |
@@ -21,16 +22,17 @@ Distribute the separate **student ZIP** to attendees. Do not distribute this ins
 
 ## Before the delivery
 
-1. Read `Instructor\DeliveryGuide\Delivery Branding Guide.md`.
-2. Confirm the customer name, workshop name, colors, icons, and approved logo in `Student\Lab\delivery-config.js` before building the release.
-3. Open `Student\Lab\index.html` and every lab page at desktop and phone widths.
-4. Verify the Coding-Forge raw GitHub URLs are reachable from the delivery network.
-5. Test the local CSV fallback from `Instructor\Source Data`.
-6. Open and refresh the completed report using the current Power BI Desktop release.
-7. Confirm the expected totals in Lab 3.
-8. Confirm which Power BI government tenant attendees use. Lab 4 lists GCC, GCC High, and DoD without choosing a default.
-9. Verify attendees have a government Pro or PPU license and an approved practice workspace when Lab 4 includes hands-on publishing.
-10. Review customer and organizational policy before enabling external sources, sharing, refresh, gateways, or sensitivity labels.
+1. Customize `Instructor\Customer Communications\Customer Training Access and Readiness Email.md`, test the student download link, and send it before the stated readiness deadline.
+2. Read `Instructor\DeliveryGuide\Delivery Branding Guide.md`.
+3. Confirm the customer name, workshop name, colors, icons, and approved logo in `Student\Lab\delivery-config.js` before building the release.
+4. Open `Student\Lab\index.html` and every lab page at desktop and phone widths.
+5. Verify the Coding-Forge raw GitHub URLs are reachable from the delivery network.
+6. Test the local CSV fallback from `Instructor\Source Data`.
+7. Open and refresh the completed report using the current Power BI Desktop release.
+8. Confirm the expected totals in Lab 3.
+9. Confirm which Power BI government tenant attendees use. Lab 4 lists GCC, GCC High, and DoD without choosing a default.
+10. Verify attendees have a government Pro or PPU license and an approved practice workspace when Lab 4 includes hands-on publishing.
+11. Review customer and organizational policy before enabling external sources, sharing, refresh, gateways, or sensitivity labels.
 
 ## Suggested delivery flow
 
