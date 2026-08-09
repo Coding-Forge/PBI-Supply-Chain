@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 260" role="img" aria-labelledby="title desc">
+  <title id="title">Boeing company name badge</title>
+  <desc id="desc">A Boeing customer name badge for workshop and report pages.</desc>
+  <defs>
+    <linearGradient id="badgeBg" x1="0" y1="0" x2="960" y2="260" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#001B5E"/>
+      <stop offset="0.55" stop-color="#0033A1"/>
+      <stop offset="1" stop-color="#0A6ED1"/>
+    </linearGradient>
+    <linearGradient id="sky" x1="76" y1="58" x2="196" y2="198" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#E0F2FE"/>
+      <stop offset="0.55" stop-color="#4CC9F0"/>
+      <stop offset="1" stop-color="#0A6ED1"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="8" y="8" width="944" height="244" rx="48" fill="url(#badgeBg)" stroke="#B9D7FF" stroke-width="4"/>
+  <rect x="36" y="36" width="188" height="188" rx="38" fill="#F8FBFF" opacity="0.98"/>
+
+  <g transform="translate(58 58)">
+    <circle cx="72" cy="72" r="64" fill="none" stroke="url(#sky)" stroke-width="14"/>
+    <path d="M18 91c34-39 74-61 120-65" fill="none" stroke="#0033A1" stroke-width="12" stroke-linecap="round"/>
+    <path d="M28 106c40-13 78-29 113-56" fill="none" stroke="#0A6ED1" stroke-width="10" stroke-linecap="round" opacity="0.82"/>
+    <path d="M90 32l43 13-33 18-16 39-14-31-34-15 37-9 17-15Z" fill="#0033A1"/>
+    <circle cx="72" cy="72" r="8" fill="#4CC9F0"/>
+  </g>
+
+  <text x="270" y="113" fill="#FFFFFF" font-family="Segoe UI, Inter, Arial, sans-serif" font-size="58" font-weight="800" letter-spacing="-2">Boeing</text>
+  <text x="273" y="162" fill="#DCEBFF" font-family="Segoe UI, Inter, Arial, sans-serif" font-size="25" font-weight="600">Power BI Workshop</text>
+  <g font-family="Segoe UI, Inter, Arial, sans-serif" font-size="17" font-weight="700">
+    <rect x="273" y="188" width="116" height="31" rx="15.5" fill="#F8FBFF" opacity="0.96"/>
+    <text x="298" y="210" fill="#0033A1">CUSTOMER</text>
+    <rect x="406" y="188" width="112" height="31" rx="15.5" fill="#B9D7FF" opacity="0.95"/>
+    <text x="421" y="210" fill="#001B5E">WORKSHOP</text>
+    <rect x="535" y="188" width="96" height="31" rx="15.5" fill="#DDF7FF" opacity="0.95"/>
+    <text x="560" y="210" fill="#0033A1">REPORT</text>
+  </g>
+</svg>

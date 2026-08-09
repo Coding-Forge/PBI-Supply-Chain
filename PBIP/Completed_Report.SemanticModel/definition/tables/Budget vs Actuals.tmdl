@@ -1,0 +1,154 @@
+table 'Budget vs Actuals'
+	lineageTag: 437e6b49-eb14-4bca-b007-89fa557c04a3
+
+	column 'Program ID'
+		dataType: string
+		lineageTag: 3e0e3e70-ee36-42f5-ac5a-a7985393aa26
+		summarizeBy: none
+		sourceColumn: Program ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Fiscal Year'
+		dataType: string
+		lineageTag: 7205d510-9348-4b88-9ca3-12692556fecf
+		summarizeBy: none
+		sourceColumn: Fiscal Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column Quarter
+		dataType: string
+		lineageTag: 17d74bec-f5d5-4a55-8e36-b54c3480464d
+		summarizeBy: none
+		sourceColumn: Quarter
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cost Center'
+		dataType: string
+		lineageTag: 3e106ffd-a97e-4d99-90cf-724d292510c1
+		summarizeBy: none
+		sourceColumn: Cost Center
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Budget Category'
+		dataType: string
+		lineageTag: 744825f1-a4e8-4003-9dbf-171523ba5318
+		summarizeBy: none
+		sourceColumn: Budget Category
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Budgeted Amount'
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 5a0ca6a3-e25e-469a-96eb-36dd76e2325c
+		summarizeBy: sum
+		sourceColumn: Budgeted Amount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column 'Actual Amount'
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 35075143-b922-484a-876b-4987339fbc3d
+		summarizeBy: sum
+		sourceColumn: Actual Amount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column Variance
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: fa547bac-b1ef-4978-86cd-3f49edcd60a6
+		summarizeBy: sum
+		sourceColumn: Variance
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column 'Variance %'
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: ea5b9174-2098-4cc8-97c4-78652b79374e
+		summarizeBy: sum
+		sourceColumn: Variance %
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column 'Funding Source'
+		dataType: string
+		lineageTag: 84aa8690-9298-414a-9aa5-19d95abe8649
+		summarizeBy: none
+		sourceColumn: Funding Source
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Contract Number'
+		dataType: string
+		lineageTag: 8da6cf1a-8478-44c5-9943-6ac3134c2851
+		summarizeBy: none
+		sourceColumn: Contract Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column Status
+		dataType: string
+		lineageTag: 8de29640-d4b8-48ff-aa8e-9382b8535265
+		summarizeBy: none
+		sourceColumn: Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Program Name'
+		dataType: string
+		lineageTag: b9d72ab4-ea37-4763-9155-d1ab25232999
+		summarizeBy: none
+		sourceColumn: Program Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Fiscal Period'
+		dataType: string
+		lineageTag: d18809a1-b561-45b2-90c0-faf024f840f1
+		summarizeBy: none
+		sourceColumn: Fiscal Period
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Budget vs Actuals' = m
+		mode: import
+		source =
+				let
+				  Source = Csv.Document(Web.Contents("https://raw.githubusercontent.com/Coding-Forge/PBI-Supply-Chain/main/Coding-Forge_Data/Financial%20Data%20-%20Budget%20vs%20Actuals.csv"), [Delimiter = ",", Columns = 13, QuoteStyle = QuoteStyle.None]),
+				  #"Promoted headers" = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				  #"Changed column type" = Table.TransformColumnTypes(#"Promoted headers", {{"Program ID", type text}, {"Program Name", type text}, {"Fiscal Year", type text}, {"Quarter", type text}, {"Cost Center", type text}, {"Budget Category", type text}, {"Budgeted Amount", Currency.Type}, {"Actual Amount", type text}, {"Variance", type text}, {"Variance %", type text}, {"Funding Source", type text}, {"Contract Number", type text}, {"Status", type text}}),
+				  #"Filtered rows" = Table.SelectRows(#"Changed column type", each Text.StartsWith([Program ID], "PRG")),
+				  #"Removed duplicates" = Table.Distinct(#"Filtered rows", {"Program ID", "Program Name", "Fiscal Year", "Quarter", "Cost Center", "Budget Category", "Budgeted Amount", "Actual Amount", "Variance", "Variance %", "Funding Source", "Contract Number", "Status"}),
+				  #"Trimmed text" = Table.TransformColumns(#"Removed duplicates", {{"Program ID", each Text.Trim(_), type nullable text}, {"Program Name", each Text.Trim(_), type nullable text}, {"Cost Center", each Text.Trim(_), type nullable text}, {"Budget Category", each Text.Trim(_), type nullable text}, {"Funding Source", each Text.Trim(_), type nullable text}, {"Contract Number", each Text.Trim(_), type nullable text}, {"Status", each Text.Trim(_), type nullable text}}),
+				  #"Capitalized each word" = Table.TransformColumns(#"Trimmed text", {{"Budget Category", each Text.Proper(_), type nullable text}, {"Status", each Text.Proper(_), type nullable text}}),
+				  #"Inserted conditional column" = Table.AddColumn(#"Capitalized each word", "ProgramName", each if [Program Name] = "Next Gen Radar Systems" then "Next-Gen Radar Systems" else if [Program Name] = "Satellite Comm Upgrade" then "Satellite Communications Upgrade" else [Program Name]),
+				  #"Replaced value" = Table.ReplaceValue(#"Inserted conditional column", "Sub-Contracts", "Subcontracts", Replacer.ReplaceText, {"Budget Category"}),
+				  #"Removed columns" = Table.RemoveColumns(#"Replaced value", {"Program Name"}),
+				  #"Changed column type 1" = Table.TransformColumnTypes(#"Removed columns", {{"ProgramName", type text}}),
+				  #"Renamed columns" = Table.RenameColumns(#"Changed column type 1", {{"ProgramName", "Program Name"}}),
+				  #"Replaced value 1" = Table.ReplaceValue(#"Renamed columns", "N/A", "", Replacer.ReplaceText, {"Actual Amount"}),
+				  #"Replaced value 2" = Table.ReplaceValue(#"Replaced value 1", "N/A", "", Replacer.ReplaceText, {"Variance %"}),
+				  #"Replaced value 3" = Table.ReplaceValue(#"Replaced value 2", "N/A", "", Replacer.ReplaceText, {"Variance"}),
+				  #"Changed column type with locale" = Table.TransformColumnTypes(#"Replaced value 3", {{"Actual Amount", Currency.Type}, {"Variance", Currency.Type}, {"Variance %", Currency.Type}}, "en-US"),
+				  #"Added custom" = Table.AddColumn(#"Changed column type with locale", "Fiscal Period", each [Fiscal Year] & " " & [Quarter]),
+				  #"Changed column type 2" = Table.TransformColumnTypes(#"Added custom", {{"Fiscal Period", type text}})
+				in
+				  #"Changed column type 2"
+
+	annotation PBI_ResultType = Table
+

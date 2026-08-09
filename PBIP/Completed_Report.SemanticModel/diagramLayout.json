@@ -1,0 +1,74 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 783.38305001469348,
+            "y": 360
+          },
+          "nodeIndex": "Budget vs Actuals",
+          "nodeLineageTag": "437e6b49-eb14-4bca-b007-89fa557c04a3",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 282.20156119318506,
+            "y": 637.8446979598458
+          },
+          "nodeIndex": "Program",
+          "nodeLineageTag": "6d1ecb80-3551-4190-8e78-d4b2c0f03b85",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 812,
+            "y": 742
+          },
+          "nodeIndex": "Purchase Orders",
+          "nodeLineageTag": "43986778-6d3b-494c-a34d-89df622f9ba1",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 813.79843880681494,
+            "y": 409
+          },
+          "nodeIndex": "_Measures",
+          "nodeLineageTag": "e7730423-f2b5-4b49-bf49-dfb6b5c769b1",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}

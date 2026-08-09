@@ -1,0 +1,169 @@
+table 'Purchase Orders'
+	lineageTag: 43986778-6d3b-494c-a34d-89df622f9ba1
+
+	column 'PO ID'
+		dataType: string
+		lineageTag: d3ee1f35-d73a-4200-91d2-96c827534f1f
+		summarizeBy: none
+		sourceColumn: PO ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Number'
+		dataType: string
+		lineageTag: 4b8140e1-dc96-4572-8f55-7cf4895c984e
+		summarizeBy: none
+		sourceColumn: PO Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Vendor Name'
+		dataType: string
+		lineageTag: 2c11b017-e272-4ea2-91d9-6584e9b677fd
+		summarizeBy: none
+		sourceColumn: Vendor Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Vendor ID'
+		dataType: string
+		lineageTag: bcbdf337-b046-47d8-8c3a-d049261ed680
+		summarizeBy: none
+		sourceColumn: Vendor ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Program ID'
+		dataType: string
+		lineageTag: bf329934-44b6-47c6-a621-32636047db60
+		summarizeBy: none
+		sourceColumn: Program ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Program Name'
+		dataType: string
+		lineageTag: b12fff06-bd45-493a-b968-2b131ecf285a
+		summarizeBy: none
+		sourceColumn: Program Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Description
+		dataType: string
+		lineageTag: d6862ae4-986a-4664-b697-afb5f00c2928
+		summarizeBy: none
+		sourceColumn: Description
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Order Date'
+		dataType: string
+		lineageTag: eadb7a23-9288-4d6d-af74-63a29e4849f0
+		summarizeBy: none
+		sourceColumn: Order Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Delivery Date'
+		dataType: string
+		lineageTag: 327b3a5e-7e71-4028-ad8a-f663aab41361
+		summarizeBy: none
+		sourceColumn: Delivery Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'PO Amount'
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 8e27490e-173e-49f2-b073-e1db2d0e3896
+		summarizeBy: sum
+		sourceColumn: PO Amount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column 'Amount Paid'
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: bd60a10d-0465-4ced-8642-944b08a29980
+		summarizeBy: sum
+		sourceColumn: Amount Paid
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column 'Amount Remaining'
+		dataType: decimal
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		lineageTag: 1f879b4e-7b3f-4685-b14f-8e3071373117
+		summarizeBy: sum
+		sourceColumn: Amount Remaining
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column 'PO Status'
+		dataType: string
+		lineageTag: dc596b88-0739-4584-8347-07a0c2635897
+		summarizeBy: none
+		sourceColumn: PO Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Approver Name'
+		dataType: string
+		lineageTag: 4dcbf9fd-ab6b-41a5-8dbe-1d0aad590f00
+		summarizeBy: none
+		sourceColumn: Approver Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cost Center'
+		dataType: string
+		lineageTag: c82bca17-466d-4a55-aea3-6b0b745a448f
+		summarizeBy: none
+		sourceColumn: Cost Center
+
+		annotation SummarizationSetBy = Automatic
+
+	column Priority
+		dataType: string
+		lineageTag: 9ad13e7b-4880-4a19-9f13-fd6a7bada278
+		summarizeBy: none
+		sourceColumn: Priority
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CLIN Number'
+		dataType: string
+		lineageTag: b9dc8e2b-a13b-4233-8dc2-1be825a37118
+		summarizeBy: none
+		sourceColumn: CLIN Number
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Purchase Orders' = m
+		mode: import
+		source =
+				let
+				  Source = Csv.Document(Web.Contents("https://raw.githubusercontent.com/Coding-Forge/PBI-Supply-Chain/main/Coding-Forge_Data/Financial%20Data%20-%20Purchase%20Orders.csv"), [Delimiter = ",", Columns = 17, QuoteStyle = QuoteStyle.None]),
+				  #"Promoted headers" = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				  #"Changed column type" = Table.TransformColumnTypes(#"Promoted headers", {{"PO ID", type text}, {"PO Number", Int64.Type}, {"Vendor Name", type text}, {"Vendor ID", type text}, {"Program ID", type text}, {"Program Name", type text}, {"Description", type text}, {"Order Date", type date}, {"Delivery Date", type date}, {"PO Amount", Currency.Type}, {"Amount Paid", type text}, {"Amount Remaining", Currency.Type}, {"PO Status", type text}, {"Approver Name", type text}, {"Cost Center", type text}, {"Priority", type text}, {"CLIN Number", type text}}),
+				  #"Removed duplicates" = Table.Distinct(#"Changed column type", {"PO ID"}),
+				  #"Trimmed text" = Table.TransformColumns(#"Removed duplicates", {{"PO ID", each Text.Trim(Text.From(_)), type nullable text}, {"PO Number", each Text.Trim(Text.From(_)), type nullable text}, {"Vendor Name", each Text.Trim(Text.From(_)), type nullable text}, {"Vendor ID", each Text.Trim(Text.From(_)), type nullable text}, {"Program ID", each Text.Trim(Text.From(_)), type nullable text}, {"Program Name", each Text.Trim(Text.From(_)), type nullable text}, {"Description", each Text.Trim(Text.From(_)), type nullable text}, {"Order Date", each Text.Trim(Text.From(_)), type nullable text}, {"Delivery Date", each Text.Trim(Text.From(_)), type nullable text}, {"PO Amount", each Text.Trim(Text.From(_)), type nullable text}, {"Amount Paid", each Text.Trim(Text.From(_)), type nullable text}, {"Amount Remaining", each Text.Trim(Text.From(_)), type nullable text}, {"PO Status", each Text.Trim(Text.From(_)), type nullable text}, {"Approver Name", each Text.Trim(Text.From(_)), type nullable text}, {"Cost Center", each Text.Trim(Text.From(_)), type nullable text}, {"Priority", each Text.Trim(Text.From(_)), type nullable text}, {"CLIN Number", each Text.Trim(Text.From(_)), type nullable text}}),
+				  #"Replaced value" = Table.ReplaceValue(#"Trimmed text", "-", "0", Replacer.ReplaceText, {"Amount Paid"}),
+				  #"Replaced value 1" = Table.ReplaceValue(#"Replaced value", "NULL", "0", Replacer.ReplaceText, {"Amount Paid"}),
+				  #"Changed column type with locale" = Table.TransformColumnTypes(#"Replaced value 1", {{"PO Amount", Currency.Type}, {"Amount Paid", Currency.Type}, {"Amount Remaining", Currency.Type}}, "en-US"),
+				  #"Capitalized each word" = Table.TransformColumns(#"Changed column type with locale", {{"PO Status", each Text.Proper(_), type nullable text}, {"Priority", each Text.Proper(_), type nullable text}}),
+				  #"Replaced value 2" = Table.ReplaceValue(#"Capitalized each word", "Apex Dynamics Corp.", "Apex Dynamics Corp", Replacer.ReplaceText, {"Vendor Name"}),
+				  #"Replaced value 3" = Table.ReplaceValue(#"Replaced value 2", "Centurion Inc.", "Centurion Inc", Replacer.ReplaceText, {"Vendor Name"}),
+				  #"Replaced value 4" = Table.ReplaceValue(#"Replaced value 3", "Satellite Comm Upgrade", "Satellite Communications Upgrade", Replacer.ReplaceText, {"Program Name"})
+				in
+				  #"Replaced value 4"
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,47 @@
+table Program
+	lineageTag: 6d1ecb80-3551-4190-8e78-d4b2c0f03b85
+
+	column 'Program ID'
+		dataType: string
+		lineageTag: fd9cef0c-fbf4-402a-bc2a-aa1edfe83053
+		summarizeBy: none
+		sourceColumn: Program ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Program Name'
+		dataType: string
+		lineageTag: eb63d44a-af5b-4947-ac90-0cd0c20f94b7
+		summarizeBy: none
+		sourceColumn: Program Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Branch
+		dataType: string
+		lineageTag: a60d4c63-cd4f-4bce-bd2c-784804a02ac1
+		summarizeBy: none
+		sourceColumn: Branch
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Contract Number'
+		dataType: string
+		lineageTag: dbaa6c10-de72-4f3f-89b4-eb2613a66213
+		summarizeBy: none
+		sourceColumn: Contract Number
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Program = m
+		mode: import
+		source =
+				let
+				  Source = Csv.Document(Web.Contents("https://raw.githubusercontent.com/Coding-Forge/PBI-Supply-Chain/main/Coding-Forge_Data/Financial%20Data%20-%20Programs.csv"), [Delimiter = ",", Columns = 4, QuoteStyle = QuoteStyle.None]),
+				  #"Promoted headers" = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				  #"Trimmed text" = Table.TransformColumns(#"Promoted headers", {{"Program ID", each Text.Trim(_), type nullable text}, {"Program Name", each Text.Trim(_), type nullable text}, {"Branch", each Text.Trim(_), type nullable text}, {"Contract Number", each Text.Trim(_), type nullable text}})
+				in
+				  #"Trimmed text"
+
+	annotation PBI_ResultType = Table
+

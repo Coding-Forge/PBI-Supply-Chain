@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">Boeing report icon</title>
+  <desc id="desc">A report card icon with a Boeing-themed aerospace accent.</desc>
+  <rect width="256" height="256" rx="56" fill="#0033A1"/>
+  <rect x="60" y="44" width="112" height="150" rx="18" fill="#F8FBFF"/>
+  <path d="M82 82h68M82 112h68M82 142h42" stroke="#0A6ED1" stroke-width="12" stroke-linecap="round"/>
+  <path d="M82 178h92c13 0 22-10 22-22V76" fill="none" stroke="#B9D7FF" stroke-width="10" stroke-linecap="round"/>
+  <path d="M94 198c44-34 86-54 126-60" fill="none" stroke="#4CC9F0" stroke-width="14" stroke-linecap="round"/>
+  <path d="M173 102l42 12-32 18-16 38-14-30-34-16 37-9 17-13Z" fill="#FFFFFF"/>
+</svg>

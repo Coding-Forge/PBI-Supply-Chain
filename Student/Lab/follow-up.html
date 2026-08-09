@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Follow Up · Extend the Power BI Report</title>
+  <script>
+    (() => {
+      const param = new URLSearchParams(window.location.search).get("clawpilotTheme");
+      const theme = param || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      document.documentElement.setAttribute("data-theme", theme);
+    })();
+  </script>
+  <script src="delivery-brand.js" defer></script>
+  <style>
+    :root { color-scheme: light; --cp-bg: #f7f4ef; --cp-bg-elevated: #fcfbf8; --cp-surface: #ffffff; --cp-surface-soft: #f5f5f5; --cp-border: #dedede; --cp-border-strong: #919191; --cp-text: #242424; --cp-text-muted: #5c5c5c; --cp-text-soft: #6f6f6f; --cp-accent: #b11f4b; --cp-accent-hover: #9a1a41; --cp-accent-soft: rgba(177, 31, 75, 0.08); --cp-accent-fg: #ffffff; --cp-success: #16a34a; --cp-danger: #dc2626; --cp-warning: #f59e0b; --cp-link: #0078d4; --cp-shadow: 0 18px 48px rgba(0, 0, 0, 0.12); --cp-overlay: rgba(255, 255, 255, 0.8); --cp-panel: rgba(255, 255, 255, 0.86); --cp-panel-strong: rgba(255, 255, 255, 0.96); --cp-sheen: rgba(255, 255, 255, 0.55); --cp-highlight: rgba(177, 31, 75, 0.12); }
+    html[data-theme="dark"] { color-scheme: dark; --cp-bg: #3d3b3a; --cp-bg-elevated: #343231; --cp-surface: #292929; --cp-surface-soft: #2e2e2e; --cp-border: #474747; --cp-border-strong: #5f5f5f; --cp-text: #dedede; --cp-text-muted: #919191; --cp-text-soft: #b0b0b0; --cp-accent: #fd8ea1; --cp-accent-hover: #fb7b91; --cp-accent-soft: rgba(253, 142, 161, 0.14); --cp-accent-fg: #1a1a1a; --cp-success: #4ade80; --cp-danger: #f87171; --cp-warning: #fbbf24; --cp-link: #4da6ff; --cp-shadow: 0 18px 48px rgba(0, 0, 0, 0.32); --cp-overlay: rgba(41, 41, 41, 0.88); --cp-panel: rgba(41, 41, 41, 0.72); --cp-panel-strong: rgba(41, 41, 41, 0.96); --cp-sheen: rgba(255, 255, 255, 0.04); --cp-highlight: rgba(253, 142, 161, 0.12); }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--cp-bg); color: var(--cp-text); font-family: "Segoe UI", Aptos, Calibri, -apple-system, BlinkMacSystemFont, sans-serif; line-height: 1.55; }
+    a { color: var(--cp-link); }
+    code, pre { font-family: Consolas, "Courier New", Courier, monospace; }
+    .shell { max-width: 1080px; margin: auto; padding: 20px; }
+    .topnav, .bottomnav { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 14px 0; }
+    .topnav a, .bottomnav a { text-decoration: none; font-weight: 700; }
+    .crumb { color: var(--cp-text-muted); }
+    header { padding: 32px 0; border-block: 1px solid var(--cp-border); }
+    .eyebrow { color: var(--cp-accent); font-size: .8rem; font-weight: 800; text-transform: uppercase; }
+    h1 { max-width: 820px; margin: 8px 0; font-size: clamp(2rem, 5vw, 3.4rem); line-height: 1.08; letter-spacing: 0; }
+    .lede { max-width: 780px; color: var(--cp-text-muted); font-size: 1.05rem; }
+    main { padding: 30px 0; }
+    section { margin-bottom: 36px; }
+    h2 { margin: 0 0 14px; font-size: 1.45rem; letter-spacing: 0; }
+    h3 { margin: 0 0 8px; font-size: 1.1rem; letter-spacing: 0; }
+    .intro { padding: 18px; background: var(--cp-accent-soft); border-left: 4px solid var(--cp-accent); border-radius: 0.625rem; }
+    .roadmap { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+    .idea { min-width: 0; padding: 19px; background: var(--cp-surface); border: 1px solid var(--cp-border); border-radius: 16px; box-shadow: 0 0 2px var(--cp-border), 0 1px 2px var(--cp-border); }
+    .priority { display: block; margin-bottom: 8px; color: var(--cp-accent); font-size: .76rem; font-weight: 800; text-transform: uppercase; }
+    .idea p { margin-bottom: 0; color: var(--cp-text-muted); }
+    .implementation { display: grid; grid-template-columns: 180px minmax(0, 1fr); gap: 12px 20px; padding: 20px; background: var(--cp-surface); border: 1px solid var(--cp-border); border-radius: 16px; }
+    .implementation dt { font-weight: 800; }
+    .implementation dd { margin: 0; color: var(--cp-text-muted); }
+    .callout { padding: 16px; background: var(--cp-surface-soft); border: 1px solid var(--cp-border); border-radius: 0.625rem; }
+    .callout strong { color: var(--cp-accent); }
+    @media (max-width: 760px) { .roadmap { grid-template-columns: 1fr 1fr; } .implementation { grid-template-columns: 1fr; gap: 5px; } }
+    @media (max-width: 520px) { .roadmap { grid-template-columns: 1fr; } .topnav, .bottomnav { align-items: flex-start; flex-direction: column; } }
+    @media print { body { background: var(--cp-surface); } .idea { box-shadow: none; break-inside: avoid; } }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <nav class="topnav"><a href="04-publish-service.html">← Lab 4</a><span class="crumb">Optional follow up</span><a href="index.html">Course home</a></nav>
+    <header>
+      <div class="eyebrow">Beyond the guided labs</div>
+      <h1>Extend the report for production use</h1>
+      <p class="lede">Choose enhancements that fit the audience, operating model, and security requirements for your Power BI US Government environment. These are optional next steps, not Lab 4 completion requirements.</p>
+    </header>
+    <main>
+      <section class="intro"><strong>Start with the user need.</strong> Add a feature only when it improves trust, navigation, security, or decision speed. Validate government-cloud feature availability and organizational policy before implementation.</section>
+
+      <section>
+        <h2>Enhancement roadmap</h2>
+        <div class="roadmap">
+          <article class="idea"><span class="priority">Reliability</span><h3>Last successful data refresh</h3><p>Create a one-row Power Query table using <code>DateTimeZone.FixedUtcNow()</code> and display its UTC value in the report footer. This reports model refresh time rather than browser-open time.</p></article>
+          <article class="idea"><span class="priority">Usability</span><h3>Reset filters control</h3><p>Create a clean-state bookmark and a clearly labeled reset button. This helps after opening a filtered report URL and during executive briefings.</p></article>
+          <article class="idea"><span class="priority">Security</span><h3>Branch-level row-level security</h3><p>Add RLS when users should see only their branch. Validate with <b>View as</b> in Desktop and the semantic model’s <b>Security</b> page in the service.</p></article>
+          <article class="idea"><span class="priority">Analysis</span><h3>Drillthrough and tooltip detail</h3><p>Add a Program drillthrough page and report-page tooltip so leaders can move from a variance signal to supporting periods and purchase orders without crowding Executive Review.</p></article>
+          <article class="idea"><span class="priority">Mobile</span><h3>Phone layout</h3><p>Build a phone layout for Executive Review with KPIs, the variance chart, and a compact detail list. Test it in the Power BI mobile layout editor.</p></article>
+          <article class="idea"><span class="priority">Governance</span><h3>Ownership and data notice</h3><p>Add the source, owner, refresh cadence, and data classification. Apply an approved sensitivity label where supported in the target government cloud.</p></article>
+        </div>
+      </section>
+
+      <section>
+        <h2>Suggested order</h2>
+        <dl class="implementation">
+          <dt>1 · Trust</dt><dd>Add refresh time, source, owner, and classification so users can judge whether the report is current and authoritative.</dd>
+          <dt>2 · Recovery</dt><dd>Add reset filters so every user can return to the intended starting state.</dd>
+          <dt>3 · Security</dt><dd>Implement and independently test RLS before distributing restricted views.</dd>
+          <dt>4 · Exploration</dt><dd>Add drillthrough and tooltips after observing which questions users ask from Executive Review.</dd>
+          <dt>5 · Device support</dt><dd>Create the mobile layout when the target audience consumes reports on phones or tablets.</dd>
+        </dl>
+      </section>
+
+      <section class="callout"><strong>Release discipline:</strong> implement enhancements in the controlled Desktop/PBIP source, test them in a development workspace, and review downstream impact before replacing the published semantic model.</section>
+    </main>
+    <nav class="bottomnav"><a href="04-publish-service.html">← Return to Lab 4</a><a href="index.html">Finish · Course home →</a></nav>
+  </div>
+</body>
+</html>

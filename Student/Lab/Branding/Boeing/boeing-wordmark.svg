@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" role="img" aria-labelledby="title desc">
+  <title id="title">Boeing report wordmark</title>
+  <desc id="desc">A Boeing-themed wordmark with an aerospace mark and customer name.</desc>
+  <defs>
+    <linearGradient id="panel" x1="0" y1="0" x2="1200" y2="360" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F8FBFF"/>
+      <stop offset="1" stop-color="#E6F1FF"/>
+    </linearGradient>
+    <linearGradient id="markBg" x1="42" y1="42" x2="318" y2="318" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0033A1"/>
+      <stop offset="0.55" stop-color="#0A6ED1"/>
+      <stop offset="1" stop-color="#001B5E"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="360" rx="44" fill="url(#panel)"/>
+  <rect x="2" y="2" width="1196" height="356" rx="42" fill="none" stroke="#B9D7FF" stroke-width="4"/>
+
+  <g transform="translate(36 36)">
+    <rect width="288" height="288" rx="68" fill="url(#markBg)"/>
+    <circle cx="144" cy="144" r="94" fill="none" stroke="#DDF7FF" stroke-width="13" opacity="0.9"/>
+    <path d="M58 175c54-62 117-97 190-103" fill="none" stroke="#FFFFFF" stroke-width="17" stroke-linecap="round"/>
+    <path d="M73 201c65-23 126-51 181-96" fill="none" stroke="#4CC9F0" stroke-width="13" stroke-linecap="round"/>
+    <path d="M171 70l62 18-47 26-24 57-20-45-49-22 54-13 24-21Z" fill="#FFFFFF"/>
+    <circle cx="144" cy="144" r="10" fill="#4CC9F0"/>
+  </g>
+
+  <text x="380" y="158" fill="#0033A1" font-family="Segoe UI, Inter, Arial, sans-serif" font-size="90" font-weight="800" letter-spacing="-3">Boeing</text>
+  <text x="384" y="218" fill="#334155" font-family="Segoe UI, Inter, Arial, sans-serif" font-size="29" font-weight="650" letter-spacing="3">POWER BI WORKSHOP</text>
+  <path d="M386 252h560" stroke="#B9D7FF" stroke-width="4" stroke-linecap="round"/>
+  <path d="M386 252h264" stroke="#0033A1" stroke-width="4" stroke-linecap="round"/>
+</svg>

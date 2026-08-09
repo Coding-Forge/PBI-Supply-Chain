@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lab 4 · Publish to Power BI US Government</title>
+  <script>
+    (() => {
+      const param = new URLSearchParams(window.location.search).get("clawpilotTheme");
+      const theme = param || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      document.documentElement.setAttribute("data-theme", theme);
+    })();
+  </script>
+  <script src="delivery-brand.js" defer></script>
+  <style>
+    :root { color-scheme: light; --cp-bg: #f7f4ef; --cp-bg-elevated: #fcfbf8; --cp-surface: #ffffff; --cp-surface-soft: #f5f5f5; --cp-border: #dedede; --cp-border-strong: #919191; --cp-text: #242424; --cp-text-muted: #5c5c5c; --cp-text-soft: #6f6f6f; --cp-accent: #b11f4b; --cp-accent-hover: #9a1a41; --cp-accent-soft: rgba(177, 31, 75, 0.08); --cp-accent-fg: #ffffff; --cp-success: #16a34a; --cp-danger: #dc2626; --cp-warning: #f59e0b; --cp-link: #0078d4; --cp-shadow: 0 18px 48px rgba(0, 0, 0, 0.12); --cp-overlay: rgba(255, 255, 255, 0.8); --cp-panel: rgba(255, 255, 255, 0.86); --cp-panel-strong: rgba(255, 255, 255, 0.96); --cp-sheen: rgba(255, 255, 255, 0.55); --cp-highlight: rgba(177, 31, 75, 0.12); }
+    html[data-theme="dark"] { color-scheme: dark; --cp-bg: #3d3b3a; --cp-bg-elevated: #343231; --cp-surface: #292929; --cp-surface-soft: #2e2e2e; --cp-border: #474747; --cp-border-strong: #5f5f5f; --cp-text: #dedede; --cp-text-muted: #919191; --cp-text-soft: #b0b0b0; --cp-accent: #fd8ea1; --cp-accent-hover: #fb7b91; --cp-accent-soft: rgba(253, 142, 161, 0.14); --cp-accent-fg: #1a1a1a; --cp-success: #4ade80; --cp-danger: #f87171; --cp-warning: #fbbf24; --cp-link: #4da6ff; --cp-shadow: 0 18px 48px rgba(0, 0, 0, 0.32); --cp-overlay: rgba(41, 41, 41, 0.88); --cp-panel: rgba(41, 41, 41, 0.72); --cp-panel-strong: rgba(41, 41, 41, 0.96); --cp-sheen: rgba(255, 255, 255, 0.04); --cp-highlight: rgba(253, 142, 161, 0.12); }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--cp-bg); color: var(--cp-text); font-family: "Segoe UI", Aptos, Calibri, -apple-system, BlinkMacSystemFont, sans-serif; line-height: 1.55; }
+    a { color: var(--cp-link); }
+    code, pre { font-family: Consolas, "Courier New", Courier, monospace; }
+    .shell { max-width: 1100px; margin: auto; padding: 20px; }
+    .topnav, .bottomnav { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 14px 0; }
+    .topnav a, .bottomnav a { text-decoration: none; font-weight: 700; }
+    .crumb, .muted { color: var(--cp-text-muted); }
+    header { padding: 30px 0; border-block: 1px solid var(--cp-border); }
+    .eyebrow { color: var(--cp-accent); font-size: .8rem; font-weight: 800; text-transform: uppercase; }
+    h1 { max-width: 850px; margin: 8px 0; font-size: clamp(2rem, 5vw, 3.4rem); line-height: 1.08; letter-spacing: 0; }
+    .lede { max-width: 800px; color: var(--cp-text-muted); font-size: 1.05rem; }
+    .meta { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 18px; color: var(--cp-text-soft); font-size: .9rem; }
+    main { display: grid; grid-template-columns: minmax(0, 1fr) 250px; gap: 28px; padding: 30px 0; }
+    article { min-width: 0; }
+    aside { position: sticky; top: 18px; align-self: start; }
+    section { margin-bottom: 36px; }
+    h2 { margin: 0 0 13px; font-size: 1.45rem; letter-spacing: 0; }
+    h3 { margin: 20px 0 8px; font-size: 1.08rem; letter-spacing: 0; }
+    .panel, .checklist, .cloud-card { padding: 20px; background: var(--cp-surface); border: 1px solid var(--cp-border); border-radius: 16px; box-shadow: 0 0 2px var(--cp-border), 0 1px 2px var(--cp-border); }
+    .callout { margin: 16px 0; padding: 16px; background: var(--cp-accent-soft); border-left: 4px solid var(--cp-accent); border-radius: 0.625rem; }
+    .warning { border-left-color: var(--cp-warning); }
+    .danger { border-left-color: var(--cp-danger); }
+    .cloud-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 16px 0; }
+    .cloud-card { min-width: 0; padding: 16px; }
+    .cloud-card strong { display: block; margin-bottom: 6px; }
+    .cloud-card code { display: block; overflow-wrap: anywhere; color: var(--cp-link); font-size: .78rem; }
+    .release-flow { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin: 18px 0; }
+    .flow-step { position: relative; min-height: 90px; padding: 14px; background: var(--cp-surface-soft); border: 1px solid var(--cp-border); border-radius: 0.625rem; text-align: center; font-weight: 700; }
+    .flow-step span { display: block; margin-bottom: 6px; color: var(--cp-accent); font-size: .8rem; }
+    ol, ul { padding-left: 22px; }
+    li { margin: 8px 0; }
+    .verify { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin: 16px 0; }
+    .verify div { padding: 14px; background: var(--cp-surface-soft); border: 1px solid var(--cp-border); border-radius: 0.625rem; }
+    .verify b { display: block; color: var(--cp-accent); font-size: 1.15rem; }
+    .checklist label { display: grid; grid-template-columns: auto 1fr; gap: 9px; margin: 10px 0; align-items: start; }
+    .progress { height: 8px; overflow: hidden; background: var(--cp-surface-soft); border: 1px solid var(--cp-border); border-radius: 0.625rem; }
+    .bar { width: 0; height: 100%; background: var(--cp-accent); transition: width .2s ease; }
+    .small { color: var(--cp-text-muted); font-size: .85rem; }
+    .reference-list { font-size: .9rem; }
+    .reference-list a { overflow-wrap: anywhere; }
+    @media (max-width: 820px) { main { grid-template-columns: 1fr; } aside { position: static; } .cloud-grid, .release-flow { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 580px) { .cloud-grid, .release-flow, .verify { grid-template-columns: 1fr; } .topnav, .bottomnav { align-items: flex-start; flex-direction: column; } }
+    @media print { body { background: var(--cp-surface); } aside { position: static; } .panel, .checklist, .cloud-card { box-shadow: none; break-inside: avoid; } }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <nav class="topnav"><a href="03-build-report.html">← Lab 3</a><span class="crumb">Lab 4 of 4</span><a href="index.html">Course home</a></nav>
+    <header>
+      <div class="eyebrow">Lab 4 · Release and operations</div>
+      <h1>Publish safely to Power BI US Government</h1>
+      <p class="lede">Move the completed report from Power BI Desktop into the correct sovereign-cloud workspace, configure its Web-source credentials, prove refresh works, and validate the experience as a service consumer.</p>
+      <div class="meta"><span>25–35 minutes</span><span>Power BI Desktop + Service</span><span>Deliverable: published and refresh-tested report</span></div>
+    </header>
+    <main>
+      <article>
+        <section>
+          <h2>Know your government cloud</h2>
+          <p>Government tenants do not use the commercial <code>app.powerbi.com</code> portal. Confirm your organization’s cloud before signing in or publishing.</p>
+          <div class="cloud-grid">
+            <div class="cloud-card"><strong>GCC</strong><code>https://app.powerbigov.us</code></div>
+            <div class="cloud-card"><strong>GCC High</strong><code>https://app.high.powerbigov.us</code></div>
+            <div class="cloud-card"><strong>DoD</strong><code>https://app.mil.powerbigov.us</code></div>
+          </div>
+          <div class="callout warning"><strong>Stop if the cloud is wrong.</strong> A commercial-cloud license, workspace, or guest identity does not transfer automatically into a government tenant. Use the URL that corresponds to your organization’s tenant.</div>
+        </section>
+
+        <section>
+          <h2>Preflight the release</h2>
+          <ol>
+            <li>Confirm you have a government <b>Power BI Pro or Premium Per User</b> license. Power BI US Government has no Free license.</li>
+            <li>Confirm you are an <b>Admin, Member, or Contributor</b> in the instructor-approved destination workspace.</li>
+            <li>Open the completed report in the current Power BI Desktop release and select <b>Home → Refresh</b>.</li>
+            <li>Clear all slicers. Confirm the unfiltered checkpoints from Lab 3 still match.</li>
+            <li>Use a release-ready name such as <b>Coding-Forge Supply Chain</b>. Avoid version suffixes such as “final-v2”.</li>
+            <li>Confirm the report contains only fictitious workshop data. Do not publish controlled, classified, export-controlled, or operational data as part of this exercise.</li>
+          </ol>
+          <div class="verify"><div><b>$234.72M</b>Total Budget</div><div><b>$265.20M</b>Total Actual</div><div><b>-$30.48M</b>Budget Variance</div><div><b>$16.095M</b>Outstanding PO</div></div>
+        </section>
+
+        <section>
+          <h2>Publish from Power BI Desktop</h2>
+          <div class="release-flow" aria-label="Publishing workflow"><div class="flow-step"><span>1</span>Refresh and save</div><div class="flow-step"><span>2</span>Select Publish</div><div class="flow-step"><span>3</span>Choose workspace</div><div class="flow-step"><span>4</span>Open in service</div></div>
+          <ol>
+            <li>In Desktop, verify the signed-in account belongs to the correct government tenant. If your account can access more than one cloud, select the government cloud during sign-in.</li>
+            <li>Select <b>Home → Publish</b>, or <b>File → Publish → Publish to Power BI</b>.</li>
+            <li>Search for and select the instructor-approved workspace. Do not use <b>My workspace</b> for a team deliverable.</li>
+            <li>Select <b>Publish</b>. Wait for the success message, then select the report link.</li>
+            <li>Confirm the browser opens the expected <code>powerbigov.us</code> host. If it opens <code>app.powerbi.com</code>, stop and notify the instructor.</li>
+          </ol>
+          <div class="callout"><strong>Expected result:</strong> the workspace receives two related items with the same base name: a <b>report</b> and a <b>semantic model</b>. Publishing does not send service-side edits back to the Desktop file.</div>
+        </section>
+
+        <section>
+          <h2>Validate the service experience</h2>
+          <ol>
+            <li>Open the report and visit Financial Health, Procurement Exposure, and Executive Review.</li>
+            <li>On Executive Review, test the page-navigation buttons. In the service, select them normally; <code>Ctrl</code> is not required.</li>
+            <li>Set a Branch or Program slicer and confirm cards, charts, and matrices respond as they did in Desktop.</li>
+            <li>Use <b>Reset to default</b> or clear the filters, then verify the four checkpoints above.</li>
+            <li>Open the workspace and confirm both the report and semantic model are present and owned by the intended team or publisher.</li>
+          </ol>
+        </section>
+
+        <section>
+          <h2>Configure credentials and prove refresh</h2>
+          <p>This model imports public, fictitious CSV files through the Web connector. A reachable cloud Web source normally does not require an on-premises gateway.</p>
+          <ol>
+            <li>In the workspace, open the semantic model’s <b>Settings</b>.</li>
+            <li>Expand <b>Data source credentials</b> or <b>Gateway and cloud connections</b>.</li>
+            <li>For <code>https://raw.githubusercontent.com</code>, choose <b>Edit credentials</b>, set authentication to <b>Anonymous</b>, and use the privacy setting approved by your organization for public training data.</li>
+            <li>From the semantic model menu, select <b>Refresh now</b>.</li>
+            <li>Open <b>Refresh history</b> and wait for a <b>Completed</b> result. Open execution details if the refresh returns a warning.</li>
+            <li>If instructed, configure a modest scheduled refresh and leave refresh-failure notifications enabled. Shared capacity supports up to eight scheduled refreshes per day; this lab does not need that frequency.</li>
+          </ol>
+          <div class="callout warning"><strong>Azure Government boundary check:</strong> GitHub is a public-cloud source. Your tenant or network policy might block sovereign-cloud egress to <code>raw.githubusercontent.com</code>. Do not bypass policy. Record the failure and use an instructor-approved Azure Government storage location or managed gateway route instead.</div>
+        </section>
+
+        <section>
+          <h2>Share through governed channels</h2>
+          <ol>
+            <li>Use workspace roles or a Power BI app to distribute the report to the intended government-tenant audience.</li>
+            <li>Grant the minimum role required: <b>Viewer</b> for consumption, and Contributor or higher only for authors.</li>
+            <li>Test access with a designated viewer account or ask a partner to validate the link.</li>
+            <li>Confirm viewers can interact with the report but cannot edit workspace content.</li>
+          </ol>
+          <div class="callout danger"><strong>Never use Publish to web.</strong> Publish to web creates unauthenticated public internet access and is inappropriate for government or organizational content, even when a workshop dataset is fictitious.</div>
+        </section>
+
+        <section>
+          <h2>Republish safely</h2>
+          <ol>
+            <li>Make future model and report changes in the controlled Desktop/PBIP source, not only in the service.</li>
+            <li>Before replacing the semantic model, review the impact warning for downstream reports and workspaces.</li>
+            <li>Renamed or deleted columns and measures can break dependent visuals. Treat semantic-model changes as a release.</li>
+            <li>After republishing, recheck credentials when new data sources were added and confirm the automatic refresh succeeds.</li>
+          </ol>
+        </section>
+
+        <section class="panel reference-list">
+          <h2>Microsoft references</h2>
+          <ul>
+            <li><a href="https://learn.microsoft.com/en-us/fabric/enterprise/powerbi/service-government-us-overview" target="_blank" rel="noreferrer">Power BI for US Government customers</a></li>
+            <li><a href="https://learn.microsoft.com/en-us/power-bi/create-reports/desktop-upload-desktop-files" target="_blank" rel="noreferrer">Publish from Power BI Desktop</a></li>
+            <li><a href="https://learn.microsoft.com/en-us/power-bi/connect-data/refresh-data" target="_blank" rel="noreferrer">Data refresh in Power BI</a></li>
+            <li><a href="https://learn.microsoft.com/en-us/power-bi/collaborate-share/service-roles-new-workspaces" target="_blank" rel="noreferrer">Roles in Power BI workspaces</a></li>
+          </ul>
+        </section>
+      </article>
+      <aside>
+        <div class="checklist" data-progress="lab4">
+          <h2>Completion check</h2>
+          <div class="progress"><div class="bar"></div></div>
+          <p class="small"><span class="count">0</span> of 7 complete</p>
+          <label><input type="checkbox"><span>Correct government cloud confirmed.</span></label>
+          <label><input type="checkbox"><span>Preflight totals validated.</span></label>
+          <label><input type="checkbox"><span>Published to approved workspace.</span></label>
+          <label><input type="checkbox"><span>Report and semantic model found.</span></label>
+          <label><input type="checkbox"><span>Navigation and filters tested.</span></label>
+          <label><input type="checkbox"><span>Refresh completed successfully.</span></label>
+          <label><input type="checkbox"><span>Viewer access validated.</span></label>
+        </div>
+      </aside>
+    </main>
+    <nav class="bottomnav"><a href="03-build-report.html">← Review Lab 3</a><a href="follow-up.html">Explore follow-up enhancements →</a></nav>
+  </div>
+  <script>
+    document.querySelectorAll("[data-progress]").forEach(box => {
+      const key = box.dataset.progress;
+      const checks = [...box.querySelectorAll("input")];
+      let saved = [];
+      try { saved = JSON.parse(localStorage.getItem(key) || "[]"); } catch {}
+      checks.forEach((check, index) => {
+        check.checked = Boolean(saved[index]);
+        check.addEventListener("change", update);
+      });
+      function update() {
+        const state = checks.map(check => check.checked);
+        localStorage.setItem(key, JSON.stringify(state));
+        const done = state.filter(Boolean).length;
+        box.querySelector(".count").textContent = done;
+        box.querySelector(".bar").style.width = `${done / checks.length * 100}%`;
+      }
+      update();
+    });
+  </script>
+</body>
+</html>

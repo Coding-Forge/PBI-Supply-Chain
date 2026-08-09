@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">Boeing governance icon</title>
+  <desc id="desc">A shield and check icon for governance and quality sections.</desc>
+  <rect width="256" height="256" rx="56" fill="#001B5E"/>
+  <path d="M128 34 196 63v57c0 46-28 84-68 103-40-19-68-57-68-103V63l68-29Z" fill="#0033A1" stroke="#B9D7FF" stroke-width="10" stroke-linejoin="round"/>
+  <path d="M91 127l26 26 54-62" fill="none" stroke="#FFFFFF" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M128 62v132" stroke="#4CC9F0" stroke-width="8" stroke-linecap="round" opacity="0.45"/>
+</svg>
