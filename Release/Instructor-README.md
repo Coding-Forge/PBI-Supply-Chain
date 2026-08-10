@@ -14,7 +14,7 @@ Distribute the separate **student ZIP** to attendees. Do not distribute this ins
 | `Instructor\DeliveryGuide` | Branding and report-page delivery guidance. |
 | `Instructor\Customer Communications` | Reusable readiness email, regeneration script, and student manual PDF backups. |
 | `Instructor\Slide Decks` | Canonical Lessons 1–4 for delivery. |
-| `Instructor\Completed Reports` | Completed reports for demonstration and recovery. |
+| `Instructor\Completed Reports` | Canonical completed report for demonstration and recovery. |
 | `Instructor\Source Data` | Local CSV fallback and validation sources. |
 | `Instructor\Reference` | PDF guides, Power Query code, and report backgrounds. |
 | `Instructor\Certificates` | Certificate template and merge database. |
@@ -48,8 +48,8 @@ Distribute the separate **student ZIP** to attendees. Do not distribute this ins
 
 ## Facilitation and recovery
 
-- Keep completed reports closed until students need a demonstration or recovery checkpoint.
-- If a student falls behind, use the nearest completed report as a reference; do not replace their work without explaining the recovery point.
+- Keep the completed report closed until students need a demonstration or recovery checkpoint.
+- If a student falls behind, use the completed report as a reference; do not replace their work without explaining the recovery point.
 - Use the local CSV files only when the public source is blocked and local-file use is approved.
 - Never direct students to bypass government tenant, firewall, gateway, or data-loss-prevention controls.
 - Never use **Publish to web** for government or organizational content.

@@ -34,7 +34,7 @@ Do not distribute the instructor package to students because it contains complet
 | `Student\Labs\Web` | Course home, guided labs, optional exercises, and delivery branding. |
 | `Student\Labs\PDF` | PDF lab instructions and reference guides. |
 | `Student\Labs\Images` | Screenshots used by the lab pages. |
-| `Student\Labs\Completed` | Completed Power BI report references and formatting utility. |
+| `Student\Labs\Completed` | Canonical completed Power BI report and formatting utility. |
 | `Instructor\DeliveryGuide` | Instructor preparation, report design, and branding guidance. |
 | `Coding-Forge_Data` | Local copies of the fictitious workshop data. |
 | `Instructor\PPT` | Instructor lesson decks and archived source material. |

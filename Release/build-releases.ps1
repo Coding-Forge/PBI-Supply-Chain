@@ -188,8 +188,6 @@ $instructorMappings = @(
     @{ Source = 'Instructor\DeliveryGuide'; Destination = 'Instructor\DeliveryGuide' },
     @{ Source = 'Communications'; Destination = 'Instructor\Customer Communications' },
     @{ Source = 'Student\Labs\Completed\Completed_Report.pbix'; Destination = 'Instructor\Completed Reports\Completed_Report.pbix' },
-    @{ Source = 'Student\Labs\Completed\Completed_Report_2.pbix'; Destination = 'Instructor\Completed Reports\Completed_Report_2.pbix' },
-    @{ Source = 'Student\Labs\Completed'; Destination = 'Instructor\Completed Reports\Legacy' },
     @{ Source = 'Coding-Forge_Data'; Destination = 'Instructor\Source Data' },
     @{ Source = 'Certificate'; Destination = 'Instructor\Certificates' },
     @{ Source = 'Sample Reports'; Destination = 'Instructor\Sample Reports' },
@@ -241,11 +239,18 @@ Assert-Archive -ArchivePath $instructorArchive `
         "$instructorRootName/Instructor/Customer Communications/Student Manual PDFs/03 - Build the Power BI Report.pdf",
         "$instructorRootName/Instructor/Customer Communications/Student Manual PDFs/04 - Publish to Power BI.pdf",
         "$instructorRootName/Instructor/Customer Communications/Student Manual PDFs/05 - Optional Follow Up.pdf",
-        "$instructorRootName/Instructor/Completed Reports/*.pbix",
+        "$instructorRootName/Instructor/Completed Reports/Completed_Report.pbix",
         "$instructorRootName/Instructor/Slide Decks/*.pptx",
         "$instructorRootName/Instructor/Source Data/*.csv"
     ) `
-    -ForbiddenPatterns @('*PBIP*', '*PPT/Archive*', '*__pycache__*', '*.pyc')
+    -ForbiddenPatterns @(
+        '*PBIP*',
+        '*PPT/Archive*',
+        '*Completed Reports/Legacy*',
+        '*Completed_Report_2.pbix',
+        '*__pycache__*',
+        '*.pyc'
+    )
 
 $hashPath = Join-Path $OutputDirectory 'SHA256SUMS.txt'
 $hashLines = @($studentArchive, $instructorArchive) | ForEach-Object {
