@@ -23,7 +23,7 @@ Extract the student archive and open `Labs\Web\index.html` in a current browser.
 
 ### Instructors
 
-Extract the instructor archive and begin with its `README.md`. The package contains the student kit plus lesson decks, delivery guides, completed reports, source data, certificate assets, report backgrounds, reference documents, and sample reports.
+Extract the instructor archive and begin with its `README.md`. The package contains the student kit plus lesson decks, delivery guides, completed reports, source data, certificate assets, report backgrounds, and reference documents.
 
 Do not distribute the instructor package to students because it contains completed solutions and delivery-only material.
 
@@ -39,7 +39,6 @@ Do not distribute the instructor package to students because it contains complet
 | `Coding-Forge_Data` | Local copies of the fictitious workshop data. |
 | `Instructor\PPT` | Instructor lesson decks and archived source material. |
 | `Certificate` | Certificate generation assets. |
-| `Sample Reports` | Supplemental demonstration reports. |
 | `Communications` | Reusable readiness email, instructor-only backup manuals, and PDF generator. |
 | `Release` | Package documentation and the release builder. |
 | `PBIP` | Local Power BI project workspace; ignored by Git and release packaging. |

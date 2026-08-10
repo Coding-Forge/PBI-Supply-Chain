@@ -190,7 +190,6 @@ $instructorMappings = @(
     @{ Source = 'Student\Labs\Completed\Completed_Report.pbix'; Destination = 'Instructor\Completed Reports\Completed_Report.pbix' },
     @{ Source = 'Coding-Forge_Data'; Destination = 'Instructor\Source Data' },
     @{ Source = 'Certificate'; Destination = 'Instructor\Certificates' },
-    @{ Source = 'Sample Reports'; Destination = 'Instructor\Sample Reports' },
     @{ Source = 'Instructor\PPT\Lesson 1 - Power BI Overview.pptx'; Destination = 'Instructor\Slide Decks\Lesson 1 - Power BI Overview.pptx' },
     @{ Source = 'Instructor\PPT\Lesson 2 - Getting your Data into Power BI (2).pptx'; Destination = 'Instructor\Slide Decks\Lesson 2 - Getting your Data into Power BI.pptx' },
     @{ Source = 'Instructor\PPT\Lesson 3 - Building Reports.pptx'; Destination = 'Instructor\Slide Decks\Lesson 3 - Building Reports.pptx' },

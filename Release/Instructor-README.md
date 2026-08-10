@@ -18,7 +18,6 @@ Distribute the separate **student ZIP** to attendees. Do not distribute this ins
 | `Instructor\Source Data` | Local CSV fallback and validation sources. |
 | `Instructor\Reference` | PDF guides, Power Query code, and report backgrounds. |
 | `Instructor\Certificates` | Certificate template and merge database. |
-| `Instructor\Sample Reports` | Supplemental demonstration report. |
 
 ## Before the delivery
 
