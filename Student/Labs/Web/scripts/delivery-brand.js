@@ -88,7 +88,7 @@
 
   function getConfigPath() {
     const script = getCurrentScript();
-    return script?.dataset.config || "delivery-config.js";
+    return script?.dataset.config || "scripts/delivery-config.js";
   }
 
   function mergeBrandConfig(config) {

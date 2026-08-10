@@ -19,7 +19,7 @@ Download the package intended for your role from the repository's GitHub Release
 
 ### Students
 
-Extract the student archive and open `Lab\index.html` in a current browser. The package contains the guided labs, screenshots, branding assets, and local CSV fallback files. Completed reports and instructor material are intentionally excluded.
+Extract the student archive and open `Labs\Web\index.html` in a current browser. The package contains the guided labs, screenshots, branding assets, and local CSV fallback files. Completed reports and instructor material are intentionally excluded.
 
 ### Instructors
 
@@ -31,12 +31,13 @@ Do not distribute the instructor package to students because it contains complet
 
 | Path | Purpose |
 | --- | --- |
-| `Student\Lab` | Course home, guided labs, optional exercises, and delivery branding. |
-| `Student\Images` | Screenshots used by the lab pages. |
-| `Student\DeliveryGuide` | Instructor preparation, report design, and branding guidance. |
+| `Student\Labs\Web` | Course home, guided labs, optional exercises, and delivery branding. |
+| `Student\Labs\PDF` | PDF lab instructions and reference guides. |
+| `Student\Labs\Images` | Screenshots used by the lab pages. |
+| `Student\Labs\Completed` | Completed Power BI report references and formatting utility. |
+| `Instructor\DeliveryGuide` | Instructor preparation, report design, and branding guidance. |
 | `Coding-Forge_Data` | Local copies of the fictitious workshop data. |
-| `Completed` | Completed Power BI report references. |
-| `PPT` | Instructor lesson decks and archived source material. |
+| `Instructor\PPT` | Instructor lesson decks and archived source material. |
 | `Certificate` | Certificate generation assets. |
 | `Sample Reports` | Supplemental demonstration reports. |
 | `Communications` | Reusable readiness email, instructor-only backup manuals, and PDF generator. |
@@ -47,9 +48,9 @@ Coding-Forge is the fictitious organization represented by the workshop data and
 
 ## Customize a delivery
 
-Configure the delivery identity in `Student\Lab\delivery-config.js`. Customer-approved logos and icons belong under `Student\Lab\Branding\<Customer>`.
+Configure the delivery identity in `Student\Labs\Web\scripts\delivery-config.js`. Customer-approved logos and icons belong under `Student\Labs\Web\Branding\<Customer>`.
 
-See `Student\DeliveryGuide\Delivery Branding Guide.md` for supported settings and asset requirements. Changing the delivery identity must not alter Coding-Forge data names, repository URLs, filenames, or report examples.
+See `Instructor\DeliveryGuide\Delivery Branding Guide.md` for supported settings and asset requirements. Changing the delivery identity must not alter Coding-Forge data names, repository URLs, filenames, or report examples.
 
 ## Build releases
 

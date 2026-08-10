@@ -6,13 +6,13 @@ Use this guide before every customer delivery. The student HTML pages use a shar
 
 - Customer: **Boeing**
 - Workshop label: **Power BI Workshop**
-- Brand configuration: `Student\Lab\delivery-config.js`
-- Shared renderer: `Student\Lab\delivery-brand.js`
-- Customer assets: `Student\Lab\Branding\Boeing`
+- Brand configuration: `Student\Labs\Web\scripts\delivery-config.js`
+- Shared renderer: `Student\Labs\Web\scripts\delivery-brand.js`
+- Customer assets: `Student\Labs\Web\Branding\Boeing`
 
 ## Required instructor update
 
-Open `Student\Lab\delivery-config.js` and update the delivery configuration:
+Open `Student\Labs\Web\scripts\delivery-config.js` and update the delivery configuration:
 
 ```javascript
 window.deliveryBrandConfig = {
@@ -39,11 +39,11 @@ The component adds the customer masthead to all six HTML pages and appends the c
 ## Using an approved customer logo
 
 1. Obtain the logo from the customer, account team, or approved internal brand library. Do not download an unofficial logo from image search.
-2. Create a customer folder under `Student\Lab\Branding` and place the approved assets there, for example:
+2. Create a customer folder under `Student\Labs\Web\Branding` and place the approved assets there, for example:
    ```text
-   Student\Lab\Branding\Customer\customer-mark.svg
+   Student\Labs\Web\Branding\Customer\customer-mark.svg
    ```
-3. Set the paths relative to the HTML files in `Student\Lab`:
+3. Set the paths relative to the HTML files in `Student\Labs\Web`:
    ```javascript
    logoPath: "Branding/Customer/customer-mark.svg",
    badgePath: "Branding/Customer/customer-name-badge.svg"
@@ -68,8 +68,8 @@ Change those references only when the source repository and training data are in
 
 ## Pre-delivery verification
 
-1. Search `Student\Lab` for the previous customer name.
-2. Open `Student\Lab\index.html` and confirm the masthead customer and workshop name.
+1. Search `Student\Labs\Web` for the previous customer name.
+2. Open `Student\Labs\Web\index.html` and confirm the masthead customer and workshop name.
 3. Open Labs 1–4 and Follow Up; verify the masthead appears once on every page.
 4. Check desktop and phone widths for horizontal overflow.
 5. Verify the course home still lists four guided labs.
@@ -80,4 +80,4 @@ Change those references only when the source repository and training data are in
 
 ## Current Boeing delivery note
 
-The HTML course is configured for Boeing and uses the approved assets currently stored under `Student\Lab\Branding\Boeing`. Confirm those assets and their permitted use before each delivery.
+The HTML course is configured for Boeing and uses the approved assets currently stored under `Student\Labs\Web\Branding\Boeing`. Confirm those assets and their permitted use before each delivery.

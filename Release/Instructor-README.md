@@ -25,8 +25,8 @@ Distribute the separate **student ZIP** to attendees. Do not distribute this ins
 1. Customize `Instructor\Customer Communications\Customer Training Access and Readiness Email.md`, test the student download link, and send it before the stated readiness deadline.
 2. Open the backup PDFs in `Instructor\Customer Communications\Student Manual PDFs` and verify their lab content and delivery branding. Regenerate them after source or branding changes.
 3. Read `Instructor\DeliveryGuide\Delivery Branding Guide.md`.
-4. Confirm the customer name, workshop name, colors, icons, and approved logo in `Student\Lab\delivery-config.js` before building the release.
-5. Open `Student\Lab\index.html` and every lab page at desktop and phone widths.
+4. Confirm the customer name, workshop name, colors, icons, and approved logo in `Student\Labs\Web\scripts\delivery-config.js` before building the release.
+5. Open `Student\Labs\Web\index.html` and every lab page at desktop and phone widths.
 6. Verify the Coding-Forge raw GitHub URLs are reachable from the delivery network.
 7. Test the local CSV fallback from `Instructor\Source Data`.
 8. Open and refresh the completed report using the current Power BI Desktop release.

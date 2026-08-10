@@ -48,7 +48,7 @@ Complete these steps before class:
 
 1. Download the ZIP to a local folder such as `Documents\Power BI Workshop`.
 2. Extract the entire ZIP. Do not run the lab from inside the compressed ZIP preview.
-3. Open the extracted folder, then open `Lab\index.html` in Microsoft Edge or another current browser.
+3. Open the extracted folder, then open `Labs\Web\index.html` in Microsoft Edge or another current browser.
 4. Confirm that the course home displays four labs and that the images and delivery logo load.
 5. Keep the extracted `Data` folder with the lab files. It provides approved local CSV copies if the public GitHub source is unavailable.
 
@@ -118,7 +118,7 @@ If your organization uses a proxy, VPN, secure browser, application allowlist, o
 Please complete this test before the readiness deadline:
 
 1. Start Power BI Desktop and create a blank report.
-2. In your browser, open the extracted `Lab\index.html` file.
+2. In your browser, open the extracted `Labs\Web\index.html` file.
 3. Select **Lab 1** and confirm its screenshots appear.
 4. In the browser, open `https://raw.githubusercontent.com` and confirm it is not blocked by your network. A plain page or an HTTP response is acceptable; a corporate block page is not.
 5. In Power BI Desktop, select **Get data > Web** and confirm the Web connector dialog opens. You do not need to load data yet.

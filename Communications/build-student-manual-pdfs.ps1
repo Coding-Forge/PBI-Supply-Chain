@@ -1,7 +1,7 @@
 [CmdletBinding()]
 param(
     [string]$OutputDirectory = (Join-Path $PSScriptRoot 'Student Manual PDFs'),
-    [string]$BaseUrl = 'http://127.0.0.1:8766/Student/Lab'
+    [string]$BaseUrl = 'http://127.0.0.1:8766/Student/Labs/Web'
 )
 
 $ErrorActionPreference = 'Stop'

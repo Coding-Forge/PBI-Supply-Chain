@@ -12,7 +12,7 @@ This folder contains reusable pre-delivery communications and PDF backups for in
 
 Use these files only when students cannot use the interactive HTML manuals or when an approved document channel requires PDF attachments. The HTML course remains the primary experience because it provides navigation and locally stored progress checklists.
 
-The PDFs reflect the delivery branding configured in `Student\Lab\delivery-config.js` at generation time. Regenerate them after changing lab content, screenshots, or branding.
+The PDFs reflect the delivery branding configured in `Student\Labs\Web\scripts\delivery-config.js` at generation time. Regenerate them after changing lab content, screenshots, or branding.
 
 ## Regenerate the PDFs
 

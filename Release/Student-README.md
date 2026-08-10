@@ -5,7 +5,7 @@ This package contains the student materials for a four-part Power BI workshop.
 ## Start here
 
 1. Extract the entire ZIP file to a local folder. Do not open the HTML files from inside the ZIP.
-2. Open `Lab\index.html` in Microsoft Edge or another current browser.
+2. Open `Labs\Web\index.html` in Microsoft Edge or another current browser.
 3. Keep the course page open beside Power BI Desktop.
 4. Complete Labs 1–4 in order.
 
