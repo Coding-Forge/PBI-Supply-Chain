@@ -7,7 +7,7 @@ This folder contains reusable pre-delivery communications and PDF backups for in
 `Student Manual PDFs` contains printable backups of the current student course:
 
 - Course overview
-- Labs 1–4
+- Labs 1–5
 - Optional Follow Up
 
 Use these files only when students cannot use the interactive HTML manuals or when an approved document channel requires PDF attachments. The HTML course remains the primary experience because it provides navigation and locally stored progress checklists.

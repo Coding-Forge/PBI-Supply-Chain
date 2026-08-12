@@ -26,7 +26,7 @@
     .meta { display: flex; flex-wrap: wrap; gap: 8px 20px; margin-top: 20px; color: var(--cp-text-soft); font-size: .9rem; }
     main { padding: 32px 0; }
     h2 { margin: 0 0 16px; font-size: 1.35rem; letter-spacing: 0; }
-    .roadmap { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; position: relative; }
+    .roadmap { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; position: relative; }
     .lab { display: flex; flex-direction: column; min-height: 280px; padding: 22px; background: var(--cp-surface); border: 1px solid var(--cp-border); border-top: 4px solid var(--cp-accent); border-radius: 16px; box-shadow: 0 0 2px var(--cp-border), 0 1px 2px var(--cp-border); text-decoration: none; color: var(--cp-text); }
     .lab:hover { border-color: var(--cp-border-strong); transform: translateY(-2px); }
     .number { width: 38px; height: 38px; display: grid; place-items: center; border-radius: 50%; background: var(--cp-accent); color: var(--cp-accent-fg); font-weight: 800; }
@@ -51,8 +51,8 @@
   <div class="shell">
     <header>
       <h1>Power Query to Power BI: a complete working lab</h1>
-      <p class="lede">Connect to live CSV files in GitHub, turn intentionally messy operational data into a dependable star schema, build a decision-ready report, and release it through Power BI US Government.</p>
-      <div class="meta"><span>4 guided labs</span><span>About 2 hours</span><span>Power BI Desktop + Service</span><span>No prior DAX required</span></div>
+      <p class="lede">Connect to live CSV files in GitHub, turn intentionally messy operational data into a dependable star schema, build a decision-ready report, and operate it through Power BI US Government.</p>
+      <div class="meta"><span>5 guided labs</span><span>About 3 hours</span><span>Power BI Desktop + Service</span><span>No prior DAX required</span></div>
     </header>
     <main>
       <h2>Lab path</h2>
@@ -61,13 +61,14 @@
         <a class="lab" href="02-transform-model.html"><span class="number">2</span><h3>Transform and model</h3><p>Clean currency, percentages, dates, names, nulls, and duplicates. Build a one-to-many star schema.</p><span class="outcome">Outcome: validated semantic model →</span></a>
         <a class="lab" href="03-build-report.html"><span class="number">3</span><h3>Build the report</h3><p>Create reusable measures and focused pages for financial health, procurement exposure, and executive review.</p><span class="outcome">Outcome: interactive report →</span></a>
         <a class="lab" href="04-publish-service.html"><span class="number">4</span><h3>Publish and operate</h3><p>Publish to the correct US Government cloud, configure credentials, test refresh, and validate governed access.</p><span class="outcome">Outcome: service-ready report →</span></a>
+        <a class="lab" href="05-manage-power-bi-service.html"><span class="number">5</span><h3>Manage the service</h3><p>Create a governed workspace, assign roles, publish an app for audiences, and schedule refresh.</p><span class="outcome">Outcome: governed app →</span></a>
       </div>
       <div class="flow" aria-label="Lab workflow illustration">
         <div class="node">GitHub<br>CSV files</div><div class="arrow">→</div><div class="node">Power Query<br>clean + validate</div><div class="arrow">→</div><div class="node">Power BI<br>model + report</div><div class="arrow">→</div><div class="node">US Government<br>publish + refresh</div>
       </div>
       <div class="requirements">
-        <section class="panel"><h2>Before you begin</h2><ul><li>Install the current Power BI Desktop release.</li><li>Confirm you can reach <a href="https://raw.githubusercontent.com" target="_blank" rel="noreferrer">raw.githubusercontent.com</a>.</li><li>Create a blank Power BI report.</li><li>For Lab 4, obtain a government Power BI Pro or PPU license and approved workspace access.</li></ul></section>
-        <section class="panel"><h2>What success looks like</h2><ul><li>120 budget rows, 20 purchase orders, and 5 programs.</li><li>Two single-direction, one-to-many relationships.</li><li>Zero Power Query errors.</li><li>Three report pages published and refresh-tested in Power BI US Government.</li></ul></section>
+        <section class="panel"><h2>Before you begin</h2><ul><li>Install the current Power BI Desktop release.</li><li>Confirm you can reach <a href="https://raw.githubusercontent.com" target="_blank" rel="noreferrer">raw.githubusercontent.com</a>.</li><li>Create a blank Power BI report.</li><li>For Labs 4–5, obtain a government Power BI Pro or PPU license and approved workspace access.</li></ul></section>
+        <section class="panel"><h2>What success looks like</h2><ul><li>120 budget rows, 20 purchase orders, and 5 programs.</li><li>Two single-direction, one-to-many relationships.</li><li>Zero Power Query errors.</li><li>A refresh-tested report distributed through a governed Power BI app.</li></ul></section>
       </div>
       <div class="followup"><strong>After the labs</strong><a href="follow-up.html">Explore optional report and governance enhancements →</a></div>
       <a class="start" href="01-connect.html">Start Lab 1 →</a>

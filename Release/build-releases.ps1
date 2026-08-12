@@ -158,6 +158,7 @@ $studentMappings = @(
     @{ Source = 'Student\Labs\Web\02-transform-model.html'; Destination = 'Labs\Web\02-transform-model.html' },
     @{ Source = 'Student\Labs\Web\03-build-report.html'; Destination = 'Labs\Web\03-build-report.html' },
     @{ Source = 'Student\Labs\Web\04-publish-service.html'; Destination = 'Labs\Web\04-publish-service.html' },
+    @{ Source = 'Student\Labs\Web\05-manage-power-bi-service.html'; Destination = 'Labs\Web\05-manage-power-bi-service.html' },
     @{ Source = 'Student\Labs\Web\follow-up.html'; Destination = 'Labs\Web\follow-up.html' },
     @{ Source = 'Student\Labs\Web\styles'; Destination = 'Labs\Web\styles' },
     @{ Source = 'Student\Labs\Web\scripts'; Destination = 'Labs\Web\scripts' },
@@ -174,6 +175,7 @@ $instructorMappings = @(
     @{ Source = 'Student\Labs\Web\02-transform-model.html'; Destination = 'Student\Labs\Web\02-transform-model.html' },
     @{ Source = 'Student\Labs\Web\03-build-report.html'; Destination = 'Student\Labs\Web\03-build-report.html' },
     @{ Source = 'Student\Labs\Web\04-publish-service.html'; Destination = 'Student\Labs\Web\04-publish-service.html' },
+    @{ Source = 'Student\Labs\Web\05-manage-power-bi-service.html'; Destination = 'Student\Labs\Web\05-manage-power-bi-service.html' },
     @{ Source = 'Student\Labs\Web\follow-up.html'; Destination = 'Student\Labs\Web\follow-up.html' },
     @{ Source = 'Student\Labs\Web\styles'; Destination = 'Student\Labs\Web\styles' },
     @{ Source = 'Student\Labs\Web\scripts'; Destination = 'Student\Labs\Web\scripts' },
@@ -203,6 +205,7 @@ Assert-Archive -ArchivePath $studentArchive `
     -RequiredPatterns @(
         "$studentRootName/README.md",
         "$studentRootName/Labs/Web/index.html",
+        "$studentRootName/Labs/Web/05-manage-power-bi-service.html",
         "$studentRootName/Labs/Web/styles/manual-print.css",
         "$studentRootName/Labs/Web/scripts/delivery-config.js",
         "$studentRootName/Labs/Web/Branding/*",
@@ -222,6 +225,7 @@ Assert-Archive -ArchivePath $studentArchive `
         '*Transform and Model.pdf',
         '*Build the Power BI Report.pdf',
         '*Publish to Power BI.pdf',
+        '*Manage Power BI Service.pdf',
         '*Optional Follow Up.pdf',
         '*.py'
     )
@@ -237,7 +241,8 @@ Assert-Archive -ArchivePath $instructorArchive `
         "$instructorRootName/Instructor/Customer Communications/Student Manual PDFs/02 - Transform and Model.pdf",
         "$instructorRootName/Instructor/Customer Communications/Student Manual PDFs/03 - Build the Power BI Report.pdf",
         "$instructorRootName/Instructor/Customer Communications/Student Manual PDFs/04 - Publish to Power BI.pdf",
-        "$instructorRootName/Instructor/Customer Communications/Student Manual PDFs/05 - Optional Follow Up.pdf",
+        "$instructorRootName/Instructor/Customer Communications/Student Manual PDFs/05 - Manage Power BI Service.pdf",
+        "$instructorRootName/Instructor/Customer Communications/Student Manual PDFs/06 - Optional Follow Up.pdf",
         "$instructorRootName/Instructor/Completed Reports/Completed_Report.pbix",
         "$instructorRootName/Instructor/Slide Decks/*.pptx",
         "$instructorRootName/Instructor/Source Data/*.csv"

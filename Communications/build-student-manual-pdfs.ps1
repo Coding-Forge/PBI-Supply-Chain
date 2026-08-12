@@ -22,7 +22,8 @@ $manuals = @(
     @{ Source = '02-transform-model.html'; Output = '02 - Transform and Model.pdf' },
     @{ Source = '03-build-report.html'; Output = '03 - Build the Power BI Report.pdf' },
     @{ Source = '04-publish-service.html'; Output = '04 - Publish to Power BI.pdf' },
-    @{ Source = 'follow-up.html'; Output = '05 - Optional Follow Up.pdf' }
+    @{ Source = '05-manage-power-bi-service.html'; Output = '05 - Manage Power BI Service.pdf' },
+    @{ Source = 'follow-up.html'; Output = '06 - Optional Follow Up.pdf' }
 )
 
 try {
@@ -35,6 +36,8 @@ try {
 }
 
 New-Item $OutputDirectory -ItemType Directory -Force | Out-Null
+$expectedOutputs = $manuals.Output
+Get-ChildItem $OutputDirectory -Filter '*.pdf' | Where-Object { $_.Name -notin $expectedOutputs } | Remove-Item -Force
 $profileDirectory = Join-Path $env:TEMP "PBI-Manual-PDF-$([guid]::NewGuid())"
 
 try {

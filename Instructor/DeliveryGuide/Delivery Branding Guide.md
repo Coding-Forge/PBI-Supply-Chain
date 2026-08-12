@@ -70,9 +70,9 @@ Change those references only when the source repository and training data are in
 
 1. Search `Student\Labs\Web` for the previous customer name.
 2. Open `Student\Labs\Web\index.html` and confirm the masthead customer and workshop name.
-3. Open Labs 1–4 and Follow Up; verify the masthead appears once on every page.
+3. Open Labs 1–5 and Follow Up; verify the masthead appears once on every page.
 4. Check desktop and phone widths for horizontal overflow.
-5. Verify the course home still lists four guided labs.
+5. Verify the course home still lists five guided labs.
 6. Confirm all local links resolve.
 7. Confirm Coding-Forge data URLs still work unless the dataset was intentionally replaced.
 8. Confirm every path configured in `delivery-config.js` is included in the student release.

@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lab 5 · Manage Power BI Service Content</title>
+  <link rel="stylesheet" href="styles/manual-print.css" media="print">
+  <script>
+    (() => {
+      const param = new URLSearchParams(window.location.search).get("clawpilotTheme");
+      const theme = param || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      document.documentElement.setAttribute("data-theme", theme);
+    })();
+  </script>
+  <script src="scripts/delivery-brand.js" defer></script>
+  <style>
+    :root { color-scheme: light; --cp-bg: #f7f4ef; --cp-bg-elevated: #fcfbf8; --cp-surface: #ffffff; --cp-surface-soft: #f5f5f5; --cp-border: #dedede; --cp-border-strong: #919191; --cp-text: #242424; --cp-text-muted: #5c5c5c; --cp-text-soft: #6f6f6f; --cp-accent: #b11f4b; --cp-accent-hover: #9a1a41; --cp-accent-soft: rgba(177, 31, 75, 0.08); --cp-accent-fg: #ffffff; --cp-success: #16a34a; --cp-danger: #dc2626; --cp-warning: #f59e0b; --cp-link: #0078d4; }
+    html[data-theme="dark"] { color-scheme: dark; --cp-bg: #3d3b3a; --cp-bg-elevated: #343231; --cp-surface: #292929; --cp-surface-soft: #2e2e2e; --cp-border: #474747; --cp-border-strong: #5f5f5f; --cp-text: #dedede; --cp-text-muted: #919191; --cp-text-soft: #b0b0b0; --cp-accent: #fd8ea1; --cp-accent-hover: #fb7b91; --cp-accent-soft: rgba(253, 142, 161, 0.14); --cp-accent-fg: #1a1a1a; --cp-success: #4ade80; --cp-danger: #f87171; --cp-warning: #fbbf24; --cp-link: #4da6ff; }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--cp-bg); color: var(--cp-text); font-family: "Segoe UI", Aptos, Calibri, -apple-system, BlinkMacSystemFont, sans-serif; line-height: 1.55; }
+    a { color: var(--cp-link); }
+    code { font-family: Consolas, "Courier New", monospace; }
+    .shell { max-width: 1120px; margin: auto; padding: 20px; }
+    .topnav, .bottomnav { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 14px 0; }
+    .topnav a, .bottomnav a { text-decoration: none; font-weight: 700; }
+    .crumb, .muted, .small { color: var(--cp-text-muted); }
+    header { padding: 30px 0; border-block: 1px solid var(--cp-border); }
+    .eyebrow { color: var(--cp-accent); font-size: .8rem; font-weight: 800; text-transform: uppercase; }
+    h1 { max-width: 900px; margin: 8px 0; font-size: clamp(2rem, 5vw, 3.4rem); line-height: 1.08; letter-spacing: 0; }
+    .lede { max-width: 820px; color: var(--cp-text-muted); font-size: 1.05rem; }
+    .meta { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 18px; color: var(--cp-text-soft); font-size: .9rem; }
+    main { display: grid; grid-template-columns: minmax(0, 1fr) 255px; gap: 30px; padding: 30px 0; }
+    article { min-width: 0; }
+    aside { position: sticky; top: 18px; align-self: start; }
+    section { margin-bottom: 38px; }
+    h2 { margin: 0 0 13px; font-size: 1.45rem; letter-spacing: 0; }
+    h3 { margin: 18px 0 7px; font-size: 1.08rem; letter-spacing: 0; }
+    ol, ul { padding-left: 22px; }
+    li { margin: 8px 0; }
+    .panel, .checklist { padding: 20px; background: var(--cp-surface); border: 1px solid var(--cp-border); border-radius: 8px; }
+    .callout { margin: 16px 0; padding: 16px; background: var(--cp-accent-soft); border-left: 4px solid var(--cp-accent); border-radius: 0 8px 8px 0; }
+    .warning { border-left-color: var(--cp-warning); }
+    .danger { border-left-color: var(--cp-danger); }
+    .service-map { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; align-items: stretch; gap: 10px; margin: 18px 0; }
+    .service-node { display: grid; place-items: center; min-height: 118px; padding: 16px; background: var(--cp-surface); border: 1px solid var(--cp-border); border-top: 4px solid var(--cp-accent); border-radius: 8px; text-align: center; }
+    .service-node b { display: block; margin-bottom: 5px; }
+    .service-node span { color: var(--cp-text-muted); font-size: .84rem; }
+    .map-arrow { display: grid; place-items: center; color: var(--cp-accent); font-size: 1.65rem; font-weight: 800; }
+    .role-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin: 16px 0; }
+    .role { min-width: 0; padding: 15px; background: var(--cp-surface-soft); border: 1px solid var(--cp-border); border-radius: 8px; }
+    .role b { display: block; margin-bottom: 6px; color: var(--cp-accent); }
+    .role p { margin: 0; color: var(--cp-text-muted); font-size: .86rem; }
+    .audience-map { display: grid; grid-template-columns: 180px 1fr; gap: 14px; margin: 18px 0; }
+    .app-source { display: grid; place-items: center; padding: 18px; background: var(--cp-accent); color: var(--cp-accent-fg); border-radius: 8px; text-align: center; font-weight: 800; }
+    .audiences { display: grid; gap: 9px; }
+    .audience { padding: 12px 14px; background: var(--cp-surface); border: 1px solid var(--cp-border); border-left: 5px solid var(--cp-accent); border-radius: 6px; }
+    .audience span { display: block; color: var(--cp-text-muted); font-size: .84rem; }
+    .decision-table { width: 100%; border-collapse: collapse; margin: 15px 0; font-size: .9rem; }
+    .decision-table th, .decision-table td { padding: 10px; border: 1px solid var(--cp-border); text-align: left; vertical-align: top; }
+    .decision-table th { background: var(--cp-surface-soft); }
+    .checklist label { display: grid; grid-template-columns: auto 1fr; gap: 9px; margin: 10px 0; align-items: start; }
+    .progress { height: 8px; overflow: hidden; background: var(--cp-surface-soft); border: 1px solid var(--cp-border); border-radius: 6px; }
+    .bar { width: 0; height: 100%; background: var(--cp-accent); transition: width .2s ease; }
+    .small { font-size: .85rem; }
+    .reference-list { font-size: .9rem; }
+    .reference-list a { overflow-wrap: anywhere; }
+    @media (max-width: 860px) { main { grid-template-columns: 1fr; } aside { position: static; } .role-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 620px) { .topnav, .bottomnav { align-items: flex-start; flex-direction: column; } .service-map { grid-template-columns: 1fr; } .map-arrow { transform: rotate(90deg); } .role-grid, .audience-map { grid-template-columns: 1fr; } }
+    @media print { body { background: var(--cp-surface); } aside { position: static; } .panel, .checklist, .service-map, .role-grid, .audience-map { break-inside: avoid; } }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <nav class="topnav"><a href="04-publish-service.html">← Lab 4</a><span class="crumb">Lab 5 of 5</span><a href="index.html">Course home</a></nav>
+    <header>
+      <div class="eyebrow">Lab 5 · Service administration and distribution</div>
+      <h1>Manage workspaces, collaboration, apps, and refresh</h1>
+      <p class="lede">Build a governed home for the report, assign least-privilege roles, publish a curated app for distinct audiences, and establish a refresh schedule that someone will actually monitor.</p>
+      <div class="meta"><span>45–60 minutes</span><span>Power BI Service</span><span>Deliverable: governed workspace + published app</span></div>
+    </header>
+    <main>
+      <article>
+        <section>
+          <h2>Understand the service lifecycle</h2>
+          <p>A workspace is the team’s authoring and staging area. An app is the curated experience distributed to consumers. Scheduled refresh keeps the imported semantic model current after publication.</p>
+          <div class="service-map" role="img" aria-label="Workspace content flows into a published app for consumers, while scheduled refresh updates the workspace semantic model">
+            <div class="service-node"><div><b>Workspace</b><span>Authors collaborate on reports and semantic models</span></div></div>
+            <div class="map-arrow">→</div>
+            <div class="service-node"><div><b>Published app</b><span>Curated content and navigation by audience</span></div></div>
+            <div class="map-arrow">→</div>
+            <div class="service-node"><div><b>Consumers</b><span>View and interact without editing source content</span></div></div>
+          </div>
+          <div class="callout"><strong>Key distinction:</strong> publishing or updating an app is a separate action from changing workspace content. The workspace acts as a staging area until an Admin or Member selects <b>Publish app</b> or <b>Update app</b>.</div>
+        </section>
+
+        <section>
+          <h2>Create a governed workspace</h2>
+          <p>Use the Power BI service in a browser. Power BI Desktop can publish to an existing workspace, but it cannot create one.</p>
+          <ol>
+            <li>Sign in to the correct service endpoint for your tenant: GCC, GCC High, or DoD as identified in Lab 4.</li>
+            <li>Open <b>Workspaces</b>, then select <b>New workspace</b>. Depending on the current navigation, you might instead use <b>Create → Workspaces</b> or <b>+ New → Workspace</b>.</li>
+            <li>Name the workspace <b>Coding-Forge Supply Chain - Training</b>, or use the instructor-approved naming standard.</li>
+            <li>Add a useful description and contact list. Use a monitored group or at least two accountable owners rather than one person.</li>
+            <li>Confirm the assigned capacity and license model with the instructor. Do not change capacity settings without approval.</li>
+            <li>Select <b>Save</b>, then open <b>Workspace settings</b> and verify the name, contacts, and license information.</li>
+          </ol>
+          <div class="callout warning"><strong>Missing New workspace?</strong> Your tenant administrator might restrict workspace creation, your license might not permit it, or you might be in Desktop instead of the browser service. Do not work around tenant restrictions; request an approved workspace.</div>
+        </section>
+
+        <section>
+          <h2>Assign collaboration roles</h2>
+          <p>Open the workspace and select <b>Manage access</b>. Prefer Microsoft Entra groups over individual assignments when your organization has approved groups for the team.</p>
+          <div class="role-grid" role="img" aria-label="Workspace roles from highest to lowest privilege">
+            <div class="role"><b>Admin</b><p>Controls workspace settings, access, deletion, and app publication.</p></div>
+            <div class="role"><b>Member</b><p>Creates content, adds lower-privilege users, and publishes the app.</p></div>
+            <div class="role"><b>Contributor</b><p>Creates and edits content; can update the app only when delegated.</p></div>
+            <div class="role"><b>Viewer</b><p>Views and interacts with content without authoring workspace items.</p></div>
+          </div>
+          <ol>
+            <li>Add the instructor or designated owner as a second <b>Admin</b>.</li>
+            <li>Add report authors as <b>Contributors</b> unless they need to manage access or publish the app.</li>
+            <li>Add a test consumer as <b>Viewer</b>, or omit workspace access and grant that person access only through the app.</li>
+            <li>Record why each group needs its role. Remove temporary individual assignments after testing.</li>
+          </ol>
+          <table class="decision-table">
+            <thead><tr><th>Need</th><th>Recommended access</th><th>Reason</th></tr></thead>
+            <tbody>
+              <tr><td>Own settings and access</td><td>Admin</td><td>Only Admins can update/delete the workspace and fully manage roles.</td></tr>
+              <tr><td>Publish the app</td><td>Member</td><td>Members can publish, unpublish, and change app permissions.</td></tr>
+              <tr><td>Build reports and manage refresh</td><td>Contributor</td><td>Contributors can edit content and configure semantic model connections.</td></tr>
+              <tr><td>Consume governed content</td><td>App audience or Viewer</td><td>Avoids unnecessary authoring rights.</td></tr>
+            </tbody>
+          </table>
+          <div class="callout"><strong>RLS reminder:</strong> workspace Admin, Member, and Contributor roles have edit permission and row-level security does not restrict them as ordinary consumers. Validate RLS with a Viewer or app-only consumer.</div>
+        </section>
+
+        <section>
+          <h2>Collaborate without losing control</h2>
+          <ol>
+            <li>Publish the Coding-Forge report from Desktop to the new workspace, or move the instructor-approved copy if it is already in the service.</li>
+            <li>Confirm the workspace contains the report and its semantic model.</li>
+            <li>Agree on ownership: who edits the PBIX/PBIP source, who republishes, who approves access, and who responds to refresh failures.</li>
+            <li>Use comments and approved Microsoft 365 collaboration surfaces for review. Do not use workspace membership as a substitute for an approval process.</li>
+            <li>Test with the lowest role each person needs. A successful author test does not prove a consumer can open the report.</li>
+          </ol>
+          <div class="callout danger"><strong>Do not use Publish to web.</strong> It creates unauthenticated public access and is not a collaboration mechanism for organizational or government content.</div>
+        </section>
+
+        <section>
+          <h2>Create the published app</h2>
+          <ol>
+            <li>In the workspace, select <b>Create app</b>.</li>
+            <li>On <b>Setup</b>, enter a clear name, description, support contact, and approved theme color. Review advanced settings instead of accepting them blindly.</li>
+            <li>On <b>Content</b>, select <b>Add content</b>, include the Coding-Forge report, and arrange the navigation in the order consumers should follow.</li>
+            <li>Do not grant report-copy, semantic-model sharing, or Build permissions unless the audience has a documented need to create derivative content.</li>
+            <li>Select <b>Next: Add audience</b>.</li>
+          </ol>
+          <div class="callout"><strong>One app per workspace:</strong> use audiences inside that app when groups need different views of the same governed content. If content has a different owner, lifecycle, or security boundary, use a separate workspace.</div>
+        </section>
+
+        <section>
+          <h2>Design app audiences</h2>
+          <div class="audience-map" role="img" aria-label="One Power BI app presents different visible content to leadership, operations, and report author audiences">
+            <div class="app-source">Coding-Forge<br>published app</div>
+            <div class="audiences">
+              <div class="audience"><b>Leadership</b><span>Executive Review and Financial Health</span></div>
+              <div class="audience"><b>Operations</b><span>Procurement Exposure and Financial Health</span></div>
+              <div class="audience"><b>Analysts</b><span>All report pages; Build permission only when approved</span></div>
+            </div>
+          </div>
+          <ol>
+            <li>Rename the default audience <b>Leadership</b> and make only the intended report content visible.</li>
+            <li>Select <b>New audience</b>, create <b>Operations</b>, and configure its visible content.</li>
+            <li>Add approved groups or test users to each audience. Avoid <b>Entire organization</b> for this exercise.</li>
+            <li>Expand audience advanced settings. Leave semantic-model sharing and Build permission off unless explicitly required.</li>
+            <li>Select <b>Publish app</b>, copy the app link, and test it with one user from each audience.</li>
+            <li>Return to the workspace, make a harmless description or navigation change, then select <b>Update app</b> to practice the staged release cycle.</li>
+          </ol>
+          <div class="callout warning"><strong>Hidden is not always denied.</strong> If <b>Allow access to hidden content</b> is enabled, users with direct links can open hidden items. Use permissions, not navigation visibility alone, to enforce access.</div>
+        </section>
+
+        <section>
+          <h2>Configure scheduled refresh</h2>
+          <ol>
+            <li>In the workspace, open the semantic model, then select <b>Refresh → Schedule refresh</b>.</li>
+            <li>Under <b>Gateway and cloud connections</b>, verify the source is mapped correctly. Cloud sources need valid credentials; on-premises sources require an available approved gateway and data-source definition.</li>
+            <li>Under <b>Data source credentials</b>, verify the authentication method. For this lab’s public GitHub CSV sources, use the instructor-approved Anonymous configuration.</li>
+            <li>Turn <b>Configure a refresh schedule</b> on. Choose the correct time zone and schedule one off-hours daily refresh.</li>
+            <li>Keep owner failure notifications enabled and add a monitored internal contact or support alias where permitted.</li>
+            <li>Select <b>Apply</b>, run <b>Refresh now</b>, and inspect <b>Refresh history</b> until the result is <b>Completed</b> without unresolved warnings.</li>
+          </ol>
+          <table class="decision-table">
+            <thead><tr><th>Capacity</th><th>Scheduled refresh limit</th><th>Operational note</th></tr></thead>
+            <tbody>
+              <tr><td>Shared / Pro</td><td>Up to 8 per day</td><td>Manual UI refreshes do not consume the eight scheduled time slots.</td></tr>
+              <tr><td>PPU, Premium, or Fabric capacity</td><td>Up to 48 per day</td><td>Capacity resources and concurrency still constrain execution.</td></tr>
+            </tbody>
+          </table>
+          <div class="callout warning"><strong>Monitor the schedule:</strong> Power BI can disable scheduled refresh after repeated failures and can pause it after two months of inactivity. A schedule is not an operating model until someone owns alerts and checks refresh history.</div>
+        </section>
+
+        <section>
+          <h2>Validate as each persona</h2>
+          <ol>
+            <li><b>Admin:</b> confirm access, contacts, app owner, and workspace settings.</li>
+            <li><b>Contributor:</b> confirm authoring and refresh tasks work without access-management privileges.</li>
+            <li><b>Leadership audience:</b> confirm only intended app content appears and the report is read-only.</li>
+            <li><b>Operations audience:</b> confirm its navigation and content differ as designed.</li>
+            <li>Remove temporary test access and document the final owner, refresh cadence, support contact, and app link.</li>
+          </ol>
+        </section>
+
+        <section class="panel reference-list">
+          <h2>Microsoft Learn references</h2>
+          <ul>
+            <li><a href="https://learn.microsoft.com/en-us/power-bi/collaborate-share/service-create-the-new-workspaces" target="_blank" rel="noreferrer">Create a workspace in Power BI</a></li>
+            <li><a href="https://learn.microsoft.com/en-us/power-bi/collaborate-share/service-roles-new-workspaces" target="_blank" rel="noreferrer">Roles in Power BI workspaces</a></li>
+            <li><a href="https://learn.microsoft.com/en-us/power-bi/collaborate-share/service-create-distribute-apps" target="_blank" rel="noreferrer">Publish an app and manage audiences</a></li>
+            <li><a href="https://learn.microsoft.com/en-us/power-bi/connect-data/refresh-scheduled-refresh" target="_blank" rel="noreferrer">Configure scheduled refresh</a></li>
+            <li><a href="https://learn.microsoft.com/en-us/power-bi/connect-data/refresh-data" target="_blank" rel="noreferrer">Data refresh concepts and operations</a></li>
+            <li><a href="https://learn.microsoft.com/en-us/fabric/enterprise/powerbi/service-government-us-overview" target="_blank" rel="noreferrer">Power BI for US Government customers</a></li>
+          </ul>
+          <p class="small">Microsoft updates the service interface regularly. If a label differs, use the linked Learn article and follow your tenant’s current navigation and policies.</p>
+        </section>
+      </article>
+      <aside>
+        <div class="checklist" data-progress="lab5">
+          <h2>Completion check</h2>
+          <div class="progress"><div class="bar"></div></div>
+          <p class="small"><span class="count">0</span> of 8 complete</p>
+          <label><input type="checkbox"><span>Workspace created or approved workspace identified.</span></label>
+          <label><input type="checkbox"><span>Contacts and ownership recorded.</span></label>
+          <label><input type="checkbox"><span>Least-privilege roles assigned.</span></label>
+          <label><input type="checkbox"><span>Report and semantic model present.</span></label>
+          <label><input type="checkbox"><span>App content configured.</span></label>
+          <label><input type="checkbox"><span>Two audiences tested.</span></label>
+          <label><input type="checkbox"><span>Scheduled refresh configured.</span></label>
+          <label><input type="checkbox"><span>Refresh history and consumer access validated.</span></label>
+        </div>
+      </aside>
+    </main>
+    <nav class="bottomnav"><a href="04-publish-service.html">← Review Lab 4</a><a href="follow-up.html">Explore follow-up enhancements →</a></nav>
+  </div>
+  <script>
+    document.querySelectorAll("[data-progress]").forEach(box => {
+      const key = box.dataset.progress;
+      const checks = [...box.querySelectorAll("input")];
+      let saved = [];
+      try { saved = JSON.parse(localStorage.getItem(key) || "[]"); } catch {}
+      checks.forEach((check, index) => {
+        check.checked = Boolean(saved[index]);
+        check.addEventListener("change", update);
+      });
+      function update() {
+        const state = checks.map(check => check.checked);
+        localStorage.setItem(key, JSON.stringify(state));
+        const done = state.filter(Boolean).length;
+        box.querySelector(".count").textContent = done;
+        box.querySelector(".bar").style.width = `${done / checks.length * 100}%`;
+      }
+      update();
+    });
+  </script>
+</body>
+</html>

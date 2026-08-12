@@ -43,6 +43,7 @@ Distribute the separate **student ZIP** to attendees. Do not distribute this ins
 | Lab 2 | Lesson 2 and student Lab 2 | Transformation intent, quality checks, star schema. |
 | Lab 3 | Lesson 3 and student Lab 3 | Measures, layout, interactions, accessibility, totals. |
 | Lab 4 | Lesson 4 and student Lab 4 | Sovereign endpoint, publishing, credentials, refresh, governed access. |
+| Lab 5 | Student Lab 5 | Workspace ownership, collaboration roles, app audiences, and scheduled refresh. |
 | Follow up | Student Follow Up page | Optional production-readiness enhancements. |
 
 ## Facilitation and recovery

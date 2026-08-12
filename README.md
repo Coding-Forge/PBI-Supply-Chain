@@ -2,7 +2,7 @@
 
 This repository contains a reusable, instructor-led Power BI workshop. Participants connect to fictitious supply-chain data, transform it with Power Query, build a semantic model and report, and publish the result to an approved Power BI environment.
 
-The solution includes four guided labs, optional follow-up exercises, instructor presentations, completed report references, delivery guidance, and a repeatable release-packaging process.
+The solution includes five guided labs, optional follow-up exercises, instructor presentations, completed report references, delivery guidance, and a repeatable release-packaging process.
 
 ## Workshop path
 
@@ -10,6 +10,7 @@ The solution includes four guided labs, optional follow-up exercises, instructor
 2. Clean and validate the data with Power Query.
 3. Build a star schema, measures, and interactive report pages.
 4. Publish, refresh, and validate access in Power BI.
+5. Govern workspaces, collaboration roles, app audiences, and refresh operations.
 
 The publishing lab includes guidance for Power BI US Government environments. Instructors must confirm the appropriate tenant, licensing, workspace, and organizational policies before delivery.
 

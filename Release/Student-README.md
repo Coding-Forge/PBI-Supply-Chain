@@ -7,7 +7,7 @@ This package contains the student materials for a four-part Power BI workshop.
 1. Extract the entire ZIP file to a local folder. Do not open the HTML files from inside the ZIP.
 2. Open `Labs\Web\index.html` in Microsoft Edge or another current browser.
 3. Keep the course page open beside Power BI Desktop.
-4. Complete Labs 1–4 in order.
+4. Complete Labs 1–5 in order.
 
 Your browser stores checklist progress locally on the device. Progress does not synchronize to another computer or browser profile.
 
@@ -22,7 +22,7 @@ Your browser stores checklist progress locally on the device. Progress does not 
 
 | Folder | Purpose |
 | --- | --- |
-| `Lab` | Course home, four guided labs, optional follow-up page, and branding assets. |
+| `Labs\Web` | Course home, five guided labs, optional follow-up page, and branding assets. |
 | `Images` | Screenshots displayed by the lab pages. |
 | `Data` | Local CSV copies for use when the public GitHub source is unavailable and your instructor approves local-file use. |
 
